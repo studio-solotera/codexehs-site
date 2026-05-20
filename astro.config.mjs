@@ -32,10 +32,5 @@ export default defineConfig({
       ],
       filter: (page) => !page.includes('/merci') && !page.includes('/404')
     })
-  ],
-  vite: {
-    build: {
-      cssMinify: 'lightningcss'
-    }
-  }
+  ]
 });
