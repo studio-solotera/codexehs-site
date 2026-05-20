@@ -1,0 +1,71 @@
+---
+import Base from '@layouts/Base.astro';
+import { SITE } from '@data/site';
+---
+
+<Base
+  title="À propos"
+  description="Codex EHS est édité par Guillaume Cadet, EHS Manager industriel en activité. L'idée : packager 12 ans de pratique terrain en outils Excel premium pour responsables EHS solos."
+>
+  <section class="section">
+    <div class="container container--narrow">
+      <span class="eyebrow">À propos</span>
+      <h1>Codex EHS, c'est moi qui ai été à votre place.</h1>
+
+      <hr class="hr-orange" />
+
+      <p class="body-l" style="color: var(--c-ink-700);">
+        Je m'appelle Guillaume Cadet. Je suis EHS Manager dans l'industrie depuis 12 ans, aujourd'hui chez Amcor Flexibles Mareuil-sur-Aÿ (560 personnes, packaging haute performance).
+      </p>
+
+      <h2>Pourquoi Codex EHS ?</h2>
+
+      <p>
+        Pendant des années, j'ai fait le même constat à chaque mission, chaque audit, chaque échange avec d'autres responsables EHS : <strong>nous passons un temps fou à recoder les mêmes fichiers Excel</strong>. Plan d'action, registre AT, tableau de bord, DUERP, préparation d'audit... chaque responsable EHS solo passe ses premières semaines (parfois ses premiers mois) à construire ses outils. Souvent mal, souvent en partant d'un template trouvé sur internet en 2015 qui n'a jamais été mis à jour.
+      </p>
+
+      <p>
+        Le résultat : on perd des semaines en plomberie Excel. On bricole. On finit par accepter des outils médiocres parce qu'on n'a pas le temps de mieux. Et quand l'audit arrive, on transpire.
+      </p>
+
+      <h2>Le pari Codex EHS</h2>
+
+      <p>
+        Codex EHS, c'est l'inverse de cette logique. Pas un cours, pas une formation, pas un SaaS à 49 €/mois. <strong>Des templates Excel premium, livrés finis, audit-ready dès l'ouverture.</strong> Un paiement unique, une licence à vie, mises à jour incluses.
+      </p>
+
+      <p>
+        Chaque template encapsule l'équivalent de 4 à 10 heures de travail Excel que tu n'auras pas à faire. Le Plan d'Action EHS Dynamique : 4 591 formules dynamiques, 6 onglets, dashboard auto-peuplé, multi-pays francophone. Tu l'ouvres, tu le configures en 30 minutes, tu pilotes dès la 31e.
+      </p>
+
+      <h2>Ma promesse</h2>
+
+      <ul>
+        <li><strong>Audit-ready, vraiment.</strong> Le vocabulaire est à jour (CSSCT, CARSAT, DREAL). La structure répond aux exigences ISO 45001 / 14001. Quand j'écris un onglet, je l'écris en pensant à un auditeur Bureau Veritas qui va l'ouvrir.</li>
+        <li><strong>Aucun template livré qui ne te ferait pas gagner au moins 4 heures.</strong> Si je n'ai pas atteint ce seuil, je ne livre pas.</li>
+        <li><strong>Mises à jour à vie incluses.</strong> Évolution réglementaire ? Bug corrigé ? Nouveau pays ajouté ? Tu reçois la nouvelle version.</li>
+        <li><strong>Pas de bullshit marketing.</strong> Pas de pop-up "37 personnes achètent en ce moment". Pas de faux compte à rebours. Si le produit est bon, il se vend.</li>
+      </ul>
+
+      <h2>Le format Codex EHS</h2>
+
+      <p>
+        Codex EHS reste volontairement <strong>petit, indépendant, sans dette</strong>. Pas d'investisseur, pas d'équipe, pas de roadmap "scale". Une marque qui édite des templates EHS bien faits, pour des responsables EHS bien occupés.
+      </p>
+
+      <p>
+        Mon CDI principal est chez Amcor. Codex EHS est édité en side-business, sous statut d'entrepreneur individuel ({SITE.legalForm}). Je travaille dessus 5 à 8 heures par semaine, en dehors de mon temps Amcor.
+      </p>
+
+      <h2>Une question ?</h2>
+
+      <p>
+        Le canal direct : <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Je réponds personnellement, en général sous 48 h.
+      </p>
+
+      <p>
+        Tu me trouves aussi sur LinkedIn : <a href={SITE.social.linkedin} target="_blank" rel="noopener">{SITE.social.linkedin.replace('https://www.linkedin.com/in/', 'in/')}</a>
+      </p>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,157 @@
+---
+import Base from '@layouts/Base.astro';
+import ProductCard from '@components/ProductCard.astro';
+import { SITE } from '@data/site';
+import { PRODUCTS } from '@data/products';
+
+const title = `${SITE.tagline} ${SITE.baseline}`;
+const description = SITE.description;
+---
+
+<Base title={SITE.name} description={description}>
+  {/* ============= HERO ============= */}
+  <section class="hero">
+    <div class="container hero__inner">
+      <div>
+        <span class="eyebrow">Pour Responsables EHS solos en PME industrielle</span>
+        <h1 class="hero__title">
+          {SITE.tagline}<br />
+          <span style="color: var(--c-action);">{SITE.baseline}</span>
+        </h1>
+        <p class="hero__subtitle">
+          5 templates Excel + guides PDF pour piloter ton plan d'action, ton registre AT, ton DUERP et tes audits ISO 45001. Pensés pour le responsable EHS qui est seul à bord. Multi-pays francophone, vocabulaire CSSCT/CARSAT/DREAL à jour.
+        </p>
+        <div class="hero__cta">
+          <a href="/produits/plan-action-ehs" class="btn btn--primary" style="padding: 14px 24px; font-size: 18px;">
+            Voir le Plan d'Action EHS
+          </a>
+          <a href="/catalogue" class="btn btn--secondary" style="padding: 14px 24px; font-size: 18px;">
+            Catalogue complet
+          </a>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 32px; font-size: 14px; color: var(--c-ink-600);">
+          <span>✓ Téléchargement immédiat</span>
+          <span>✓ Mises à jour à vie</span>
+          <span>✓ Paiement sécurisé</span>
+        </div>
+      </div>
+
+      <div class="hero__mockup" aria-hidden="true">
+        <div class="hero__mockup-bar">
+          <span></span><span></span><span></span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+          <div class="kpi">
+            <span class="kpi__label">Actions ouvertes</span>
+            <span class="kpi__value">22</span>
+            <span class="kpi__delta kpi__delta--down">▼ -3 vs N-1</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">% réalisé</span>
+            <span class="kpi__value">27%</span>
+            <span class="kpi__delta kpi__delta--up">▲ +8 pts</span>
+          </div>
+          <div class="kpi">
+            <span class="kpi__label">En retard</span>
+            <span class="kpi__value" style="color: var(--c-danger);">4</span>
+            <span class="kpi__delta kpi__delta--flat">→ stable</span>
+          </div>
+        </div>
+        <div style="font-family: var(--font-mono); font-size: 11px; color: var(--c-ink-400); background: var(--c-bg-soft); padding: 12px; border-radius: 6px;">
+          <div>tbl_PlanAction[Criticite] = G * P</div>
+          <div>Tri: rang_priorite DESC</div>
+          <div>500 lignes · 25 colonnes · 4 591 formules</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= PILIERS ============= */}
+  <section class="section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 48px;">
+        <span class="eyebrow">3 raisons d'arrêter de réinventer la roue</span>
+        <h2 style="max-width: 32ch; margin: 0 auto;">Le kit dont tu as besoin quand tu es seul à porter l'EHS d'une PME industrielle.</h2>
+      </div>
+
+      <div class="pillars">
+        <article class="pillar">
+          <div class="pillar__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <polyline points="9 12 11 14 15 10"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title">Audit-ready</h3>
+          <p class="pillar__text">
+            Vocabulaire à jour (CSSCT, CARSAT, DREAL), structure ISO 45001 / 14001, traçabilité complète. Tu sors ton fichier devant Bureau Veritas, DEKRA ou ta CARSAT sans rougir.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <polyline points="12 6 12 12 16 14"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title">4 h gagnées minimum</h3>
+          <p class="pillar__text">
+            Chaque template t'épargne au moins 4 h de bricolage Excel. Formules dynamiques, dashboards peuplés automatiquement, mise en forme conditionnelle déjà branchée.
+          </p>
+        </article>
+
+        <article class="pillar">
+          <div class="pillar__icon" aria-hidden="true">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M2 12h20"/>
+              <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+            </svg>
+          </div>
+          <h3 class="pillar__title">Francophone multi-pays</h3>
+          <p class="pillar__text">
+            8 pays pilotés par une seule cellule : France, Belgique, Suisse, Luxembourg, Québec, Maroc, Tunisie, Algérie. Vocabulaire et devise s'adaptent. Pas de refonte des formules.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= APERCU PRODUITS ============= */}
+  <section class="section section--soft">
+    <div class="container">
+      <div class="text-center mb-6">
+        <span class="eyebrow">Catalogue</span>
+        <h2>5 templates qui couvrent ton année EHS</h2>
+        <p style="max-width: 60ch; margin: 0 auto; color: var(--c-ink-600);">
+          Un disponible aujourd'hui, quatre en route. Achète-les à l'unité, jamais en bundle forcé.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        {PRODUCTS.map((product) => <ProductCard product={product} />)}
+      </div>
+
+      <div class="text-center mt-6">
+        <a href="/catalogue" class="btn btn--secondary">Voir le catalogue complet</a>
+      </div>
+    </div>
+  </section>
+
+  {/* ============= CTA FINAL ============= */}
+  <section class="section section--dark">
+    <div class="container text-center">
+      <span class="eyebrow">Prêt à commencer ?</span>
+      <h2 style="color: #FFFFFF; max-width: 28ch; margin: 0 auto var(--space-4);">
+        Le Plan d'Action EHS Dynamique est prêt aujourd'hui.
+      </h2>
+      <p style="max-width: 56ch; margin: 0 auto var(--space-5); color: var(--c-primary-300);">
+        Un fichier Excel. Six onglets. Un dashboard qui se peuple tout seul. Trente actions de démo pré-remplies pour que tu n'aies pas à partir de zéro.
+      </p>
+      <a href="/produits/plan-action-ehs" class="btn btn--primary" style="padding: 16px 32px; font-size: 18px;">
+        Voir le produit
+      </a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,9 @@
+# Codex EHS - robots.txt
+# Site : https://codexehs.com
+
+User-agent: *
+Allow: /
+Disallow: /merci
+
+# Sitemap genere automatiquement par @astrojs/sitemap
+Sitemap: https://codexehs.com/sitemap-index.xml

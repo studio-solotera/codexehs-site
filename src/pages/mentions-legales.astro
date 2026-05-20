@@ -1,0 +1,117 @@
+---
+import Base from '@layouts/Base.astro';
+import { SITE } from '@data/site';
+
+const lastUpdated = '20 mai 2026';
+---
+
+<Base
+  title="Mentions légales"
+  description={`Mentions légales du site ${SITE.domain}. Éditeur : ${SITE.legalName}, entrepreneur individuel. Hébergeur : Cloudflare.`}
+>
+  <section class="legal-page">
+    <div class="container container--narrow">
+      <span class="eyebrow">Légal</span>
+      <h1>Mentions légales</h1>
+
+      <div class="legal-page__meta">
+        <strong>Dernière mise à jour :</strong> {lastUpdated}
+      </div>
+
+      <h2>1. Éditeur du site</h2>
+      <p>
+        Le site <a href={SITE.url}>{SITE.domain}</a> est édité par :
+      </p>
+      <ul>
+        <li><strong>{SITE.legalName}</strong>, entrepreneur individuel sous régime de la micro-entreprise.</li>
+        <li>Enseigne : <strong>{SITE.name}</strong></li>
+        <li>SIRET : <strong>{SITE.siret}</strong></li>
+        <li>Code APE : <strong>{SITE.ape}</strong> (Conseil pour les affaires et autres conseils de gestion)</li>
+        <li>Régime fiscal : {SITE.vatStatus}</li>
+        <li>Adresse postale : <strong>[ADRESSE_AE_A_COMPLETER]</strong></li>
+        <li>Email : <a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
+      </ul>
+
+      <h2>2. Directeur de la publication</h2>
+      <p>
+        Le directeur de la publication est <strong>{SITE.legalName}</strong>, en sa qualité d'entrepreneur individuel.
+      </p>
+
+      <h2>3. Hébergeur du site</h2>
+      <p>
+        Le site est hébergé par :
+      </p>
+      <ul>
+        <li><strong>Cloudflare, Inc.</strong></li>
+        <li>101 Townsend Street, San Francisco, CA 94107, États-Unis</li>
+        <li>Site : <a href="https://www.cloudflare.com" target="_blank" rel="noopener">https://www.cloudflare.com</a></li>
+      </ul>
+      <p>
+        Le service utilisé est <em>Cloudflare Pages</em>, infrastructure d'hébergement de sites statiques avec distribution mondiale (CDN).
+      </p>
+
+      <h2>4. Prestataire de paiement</h2>
+      <p>
+        Les paiements sur le site sont opérés via :
+      </p>
+      <ul>
+        <li><strong>Lemon Squeezy Holdings, Inc.</strong>, en qualité de <em>Merchant of Record</em></li>
+        <li>2261 Market Street #4509, San Francisco, CA 94114, États-Unis</li>
+        <li>Site : <a href="https://www.lemonsqueezy.com" target="_blank" rel="noopener">https://www.lemonsqueezy.com</a></li>
+      </ul>
+      <p>
+        Lemon Squeezy gère le traitement des paiements, la collecte et la déclaration de la TVA applicable selon le pays de l'Acheteur, et l'émission des factures.
+      </p>
+
+      <h2>5. Propriété intellectuelle</h2>
+      <p>
+        L'ensemble du contenu du site (textes, images, logos, structure, code source, captures d'écran de produits) est la propriété exclusive de l'Éditeur, sauf mention contraire. Toute reproduction, représentation, diffusion ou exploitation, totale ou partielle, du contenu du site, sans autorisation écrite préalable de l'Éditeur, est strictement interdite et constitue une contrefaçon sanctionnée par les articles L335-2 et suivants du Code de la propriété intellectuelle.
+      </p>
+      <p>
+        Les marques mentionnées sur le site et qui ne sont pas la propriété de l'Éditeur sont citées à titre d'information et restent la propriété de leurs ayants droit respectifs.
+      </p>
+      <p>
+        La marque <strong>Codex EHS</strong> fait l'objet d'un dépôt de marque verbale à l'INPI (en cours - dépôt prévu dans les 8 semaines suivant la mise en ligne du site, conformément à la roadmap projet).
+      </p>
+
+      <h2>6. Données personnelles</h2>
+      <p>
+        Le traitement des données personnelles est détaillé dans la <a href="/confidentialite">Politique de confidentialité</a>.
+      </p>
+
+      <h2>7. Cookies</h2>
+      <p>
+        Le site n'utilise pas de cookies de traçage publicitaire, pas de cookies analytiques tiers (Google Analytics, etc.), et pas de cookies à des fins de profilage.
+      </p>
+      <p>
+        Seuls peuvent être déposés des cookies techniques strictement nécessaires au fonctionnement du processus de paiement (Lemon Squeezy), au moment où l'Acheteur clique sur un bouton d'achat. Ces cookies sont gérés directement par Lemon Squeezy et soumis à sa propre politique disponible à <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">https://www.lemonsqueezy.com/privacy</a>.
+      </p>
+
+      <h2>8. Limitation de responsabilité</h2>
+      <p>
+        L'Éditeur met tout en œuvre pour fournir des informations fiables et tenues à jour sur le site. Toutefois, des erreurs ou omissions peuvent survenir. L'utilisateur s'assure donc de vérifier l'exactitude des informations auprès de l'Éditeur et de signaler toute modification du site qu'il jugerait utile.
+      </p>
+      <p>
+        L'Éditeur ne pourra être tenu responsable des dommages directs et indirects causés au matériel de l'utilisateur lors de l'accès au site, et résultant soit de l'utilisation d'un matériel ne répondant pas aux spécifications indiquées, soit de l'apparition d'un bug ou d'une incompatibilité.
+      </p>
+
+      <h2>9. Liens hypertextes</h2>
+      <p>
+        Le site peut comporter des liens vers d'autres sites internet. L'Éditeur n'exerce aucun contrôle sur ces sites et ne saurait être tenu responsable de leurs contenus.
+      </p>
+      <p>
+        Toute mise en place d'un lien hypertexte en direction du site nécessite l'autorisation préalable écrite de l'Éditeur, sauf en ce qui concerne l'usage par des moteurs de recherche, qui est expressément autorisé.
+      </p>
+
+      <h2>10. Loi applicable</h2>
+      <p>
+        Le présent site et ses mentions légales sont soumis au droit français. En cas de litige, les tribunaux français seront seuls compétents.
+      </p>
+
+      <hr class="hr-thin" />
+      <p class="small">
+        Pour toute question relative aux présentes mentions légales : <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </p>
+    </div>
+  </section>
+</Base>

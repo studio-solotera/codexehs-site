@@ -1,0 +1,40 @@
+---
+/**
+ * Bouton reutilisable, conforme au brand kit FIL_02.
+ * Variantes : primary (orange), secondary (contour bleu), danger.
+ * Peut etre rendu en <a> (si href) ou <button>.
+ */
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'danger';
+  size?: 'md' | 'lg';
+  type?: 'button' | 'submit';
+  external?: boolean;
+  class?: string;
+  ariaLabel?: string;
+}
+
+const {
+  href,
+  variant = 'primary',
+  size = 'md',
+  type = 'button',
+  external = false,
+  class: classProp = '',
+  ariaLabel,
+} = Astro.props;
+
+const classes = ['btn', `btn--${variant}`, classProp].filter(Boolean).join(' ');
+const styleSize = size === 'lg' ? 'padding: 14px 24px; font-size: 18px;' : '';
+const externalProps = external ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+{href ? (
+  <a href={href} class={classes} style={styleSize} aria-label={ariaLabel} {...externalProps}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={classes} style={styleSize} aria-label={ariaLabel}>
+    <slot />
+  </button>
+)}

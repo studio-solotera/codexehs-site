@@ -1,0 +1,191 @@
+---
+import Base from '@layouts/Base.astro';
+import { SITE } from '@data/site';
+
+const lastUpdated = '20 mai 2026';
+---
+
+<Base
+  title="Politique de confidentialité"
+  description={`Politique de confidentialité Codex EHS conforme RGPD. Données collectées, finalités, sous-traitants (Lemon Squeezy, Cloudflare), conservation, droits des personnes.`}
+>
+  <section class="legal-page">
+    <div class="container container--narrow">
+      <span class="eyebrow">Légal</span>
+      <h1>Politique de confidentialité</h1>
+
+      <div class="legal-page__meta">
+        <strong>Dernière mise à jour :</strong> {lastUpdated}<br />
+        <strong>Responsable du traitement :</strong> {SITE.legalName} - {SITE.name}, SIRET {SITE.siret}<br />
+        <strong>Contact :</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </div>
+
+      <p>
+        La présente politique décrit comment {SITE.name} traite les données personnelles collectées dans le cadre de son activité, conformément au Règlement (UE) 2016/679 du 27 avril 2016 (« RGPD ») et à la loi Informatique et Libertés modifiée.
+      </p>
+
+      <h2>1. Responsable du traitement</h2>
+      <p>
+        Le responsable du traitement est <strong>{SITE.legalName}</strong>, entrepreneur individuel exerçant sous l'enseigne {SITE.name}, SIRET {SITE.siret}.
+      </p>
+      <p>
+        Pour toute question relative au traitement de vos données : <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+      </p>
+
+      <h2>2. Données collectées et finalités</h2>
+
+      <h3>2.1 Visite du site</h3>
+      <p>
+        La simple visite du site {SITE.domain} ne donne lieu à <strong>aucune collecte de données personnelles par l'Éditeur</strong>. Aucun outil d'analyse comportementale, aucun pixel publicitaire, aucun cookie de traçage n'est déposé.
+      </p>
+      <p>
+        L'hébergeur Cloudflare peut conserver des journaux techniques (logs serveurs) à des fins de sécurité et de prévention de la fraude. Ces journaux sont gérés par Cloudflare selon sa propre politique de confidentialité : <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">https://www.cloudflare.com/privacypolicy/</a>.
+      </p>
+
+      <h3>2.2 Achat d'un produit</h3>
+      <p>
+        Lors d'un achat, les données suivantes sont collectées <strong>par Lemon Squeezy</strong> en sa qualité de <em>Merchant of Record</em> :
+      </p>
+      <ul>
+        <li>Nom et prénom (ou raison sociale en cas d'achat professionnel)</li>
+        <li>Adresse email</li>
+        <li>Adresse de facturation</li>
+        <li>Numéro de TVA intra-communautaire si applicable</li>
+        <li>Pays de résidence fiscale (pour la collecte de la TVA correcte)</li>
+        <li>Informations de paiement (carte bancaire, etc. - traitées exclusivement par les processeurs de paiement de Lemon Squeezy : Stripe, PayPal)</li>
+      </ul>
+      <p>
+        L'Éditeur, en tant que vendeur du Produit, accède à un sous-ensemble de ces données (nom, email, montant, produit acheté) via son tableau de bord Lemon Squeezy, à des fins :
+      </p>
+      <ul>
+        <li>de gestion de la relation client (réponse à une demande, envoi des mises à jour) ;</li>
+        <li>d'exécution du contrat (suivi des licences vendues) ;</li>
+        <li>de respect des obligations légales comptables (conservation des données nécessaires à la déclaration de chiffre d'affaires).</li>
+      </ul>
+
+      <h3>2.3 Contact email</h3>
+      <p>
+        Lorsque vous écrivez à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>, l'Éditeur traite votre email, votre nom et le contenu de votre message à seule fin de répondre à votre demande. Ces données sont hébergées par Fastmail (hébergeur email), entité soumise aux clauses contractuelles types européennes.
+      </p>
+
+      <h2>3. Bases légales du traitement</h2>
+      <p>Les traitements opérés reposent sur les bases légales suivantes :</p>
+      <ul>
+        <li><strong>Exécution du contrat</strong> (article 6.1.b RGPD) : pour le traitement des commandes et la livraison des Produits ;</li>
+        <li><strong>Respect d'une obligation légale</strong> (article 6.1.c RGPD) : pour la conservation des données de facturation et comptables ;</li>
+        <li><strong>Intérêt légitime</strong> (article 6.1.f RGPD) : pour la gestion de la relation client par email et la sécurité du site (journaux techniques) ;</li>
+        <li><strong>Consentement</strong> (article 6.1.a RGPD) : aucun consentement n'est sollicité à ce stade (pas de cookies de tracking, pas de newsletter automatisée). Si une newsletter venait à être mise en place, un consentement explicite préalable serait requis.</li>
+      </ul>
+
+      <h2>4. Durée de conservation</h2>
+      <table style="width:100%; border-collapse: collapse; margin-bottom: var(--space-4); font-size: var(--fs-small);">
+        <thead>
+          <tr style="background: var(--c-primary-900); color: white;">
+            <th style="text-align: left; padding: 8px;">Données</th>
+            <th style="text-align: left; padding: 8px;">Durée de conservation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid var(--c-line-soft);">
+            <td style="padding: 8px;">Données de commande (nom, email, produit, montant)</td>
+            <td style="padding: 8px;">10 ans (obligation légale comptable - art. L123-22 Code de commerce)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--c-line-soft);">
+            <td style="padding: 8px;">Données de facturation TVA</td>
+            <td style="padding: 8px;">10 ans (conservées par Lemon Squeezy)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--c-line-soft);">
+            <td style="padding: 8px;">Email de contact (sans achat)</td>
+            <td style="padding: 8px;">3 ans à compter du dernier échange</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--c-line-soft);">
+            <td style="padding: 8px;">Journaux techniques Cloudflare</td>
+            <td style="padding: 8px;">30 jours en moyenne (selon politique Cloudflare)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>5. Destinataires et sous-traitants</h2>
+      <p>Les sous-traitants ayant accès à tout ou partie de vos données dans le strict cadre de la prestation qu'ils fournissent à {SITE.name} sont :</p>
+
+      <h3>5.1 Lemon Squeezy</h3>
+      <ul>
+        <li>Rôle : <em>Merchant of Record</em> et processeur de paiement</li>
+        <li>Localisation : États-Unis</li>
+        <li>Cadre du transfert : transferts encadrés par le <em>Data Privacy Framework</em> UE-USA (depuis juillet 2023) et clauses contractuelles types européennes</li>
+        <li>Politique : <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">https://www.lemonsqueezy.com/privacy</a></li>
+      </ul>
+
+      <h3>5.2 Cloudflare</h3>
+      <ul>
+        <li>Rôle : hébergement du site (Cloudflare Pages) et CDN</li>
+        <li>Localisation : États-Unis (avec serveurs en Europe via le réseau de distribution mondiale)</li>
+        <li>Cadre du transfert : Data Privacy Framework + CCT</li>
+        <li>Politique : <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">https://www.cloudflare.com/privacypolicy/</a></li>
+      </ul>
+
+      <h3>5.3 Fastmail</h3>
+      <ul>
+        <li>Rôle : hébergement email professionnel ({SITE.email})</li>
+        <li>Localisation : Australie (serveurs principaux aux USA et NL)</li>
+        <li>Cadre du transfert : clauses contractuelles types européennes</li>
+        <li>Politique : <a href="https://www.fastmail.com/about/privacy/" target="_blank" rel="noopener">https://www.fastmail.com/about/privacy/</a></li>
+      </ul>
+
+      <p>
+        Aucune autre transmission de données à des tiers n'est effectuée. Vos données ne sont jamais vendues, louées ou cédées à des fins commerciales.
+      </p>
+
+      <h2>6. Vos droits</h2>
+      <p>
+        Conformément aux articles 15 à 22 du RGPD, vous disposez des droits suivants sur vos données personnelles :
+      </p>
+      <ul>
+        <li><strong>Droit d'accès</strong> : obtenir confirmation que vos données sont traitées et en recevoir une copie ;</li>
+        <li><strong>Droit de rectification</strong> : faire corriger des données inexactes ou les compléter ;</li>
+        <li><strong>Droit à l'effacement (« droit à l'oubli »)</strong> : faire supprimer vos données, dans la limite des obligations légales de conservation ;</li>
+        <li><strong>Droit à la limitation</strong> : faire restreindre le traitement de vos données ;</li>
+        <li><strong>Droit d'opposition</strong> : vous opposer au traitement de vos données pour motifs légitimes ;</li>
+        <li><strong>Droit à la portabilité</strong> : recevoir vos données dans un format structuré et lisible ;</li>
+        <li><strong>Droit de définir des directives post-mortem</strong> sur le sort de vos données après votre décès.</li>
+      </ul>
+
+      <p>
+        Pour exercer ces droits, écrivez à <a href={`mailto:${SITE.email}`}>{SITE.email}</a> en indiquant votre demande précise et en joignant un justificatif d'identité si nécessaire. Une réponse vous sera apportée sous 30 jours.
+      </p>
+
+      <h2>7. Réclamation auprès de la CNIL</h2>
+      <p>
+        Si vous estimez que le traitement de vos données ne respecte pas la réglementation, vous pouvez introduire une réclamation auprès de la Commission nationale de l'informatique et des libertés (CNIL) :
+      </p>
+      <ul>
+        <li>CNIL - 3 place de Fontenoy - TSA 80715 - 75334 PARIS CEDEX 07</li>
+        <li>Téléphone : 01 53 73 22 22</li>
+        <li>Site : <a href="https://www.cnil.fr" target="_blank" rel="noopener">https://www.cnil.fr</a></li>
+      </ul>
+
+      <h2>8. Cookies et traceurs</h2>
+      <p>
+        Le site {SITE.domain} <strong>n'utilise pas de cookies de traçage, d'analyse comportementale ou publicitaires</strong>.
+      </p>
+      <p>
+        Lors d'un achat, le clic sur un bouton de paiement déclenche le chargement de scripts Lemon Squeezy (lemon.js) qui peuvent déposer des cookies techniques strictement nécessaires au processus de paiement et à la protection contre la fraude. Ces cookies relèvent de la responsabilité de Lemon Squeezy.
+      </p>
+
+      <h2>9. Sécurité</h2>
+      <p>
+        Le Site est servi exclusivement en HTTPS (TLS 1.2+). Les communications avec les sous-traitants utilisent des canaux chiffrés. Les accès aux outils de gestion (tableau de bord Lemon Squeezy, Cloudflare, etc.) sont protégés par mots de passe forts et authentification à deux facteurs.
+      </p>
+
+      <h2>10. Modification de la politique</h2>
+      <p>
+        La présente politique peut être modifiée pour refléter des évolutions légales ou techniques. La version applicable est celle accessible sur le site à la date de votre visite. Les modifications substantielles seront signalées en haut de page lors des 30 jours suivant leur mise en ligne.
+      </p>
+
+      <hr class="hr-thin" />
+      <p class="small">
+        Dernière mise à jour : {lastUpdated}.
+      </p>
+    </div>
+  </section>
+</Base>

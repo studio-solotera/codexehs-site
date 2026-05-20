@@ -1,0 +1,33 @@
+---
+import { SITE } from '@data/site';
+
+const navItems = [
+  { href: '/catalogue', label: 'Catalogue' },
+  { href: '/a-propos', label: 'A propos' },
+];
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+---
+
+<header class="site-header">
+  <div class="container site-header__inner">
+    <a href="/" class="site-header__logo" aria-label={`${SITE.name} - accueil`}>
+      <img src="/logos/wordmark.svg" alt={SITE.name} width="160" height="36" />
+    </a>
+
+    <nav class="site-nav" aria-label="Navigation principale">
+      {navItems.map((item) => (
+        <a
+          href={item.href}
+          class="site-nav__link site-nav__link--secondary"
+          aria-current={currentPath === item.href ? 'page' : undefined}
+        >
+          {item.label}
+        </a>
+      ))}
+      <a href="/produits/plan-action-ehs" class="btn btn--primary site-nav__cta">
+        Voir le produit
+      </a>
+    </nav>
+  </div>
+</header>

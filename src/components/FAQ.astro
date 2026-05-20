@@ -1,0 +1,36 @@
+---
+/**
+ * FAQ avec details/summary natifs (a11y + sans JS).
+ * Genere automatiquement le JSON-LD FAQPage pour le SEO.
+ * Les items sont passes en prop.
+ */
+
+interface FAQItem {
+  q: string;
+  a: string;
+}
+
+interface Props {
+  items: FAQItem[];
+  title?: string;
+}
+
+const { items, title = 'Questions frequentes' } = Astro.props;
+
+// Le JSON-LD FAQPage est genere mais doit etre injecte dans <Base jsonLd> par la page parente.
+// On expose via slot, mais ici on rend juste le UI. La page parente passe items a Base aussi.
+---
+
+<section class="section">
+  <div class="container container--narrow">
+    {title && <h2 class="text-center mb-6">{title}</h2>}
+    <div class="faq">
+      {items.map((item) => (
+        <details class="faq__item">
+          <summary>{item.q}</summary>
+          <div class="faq__answer" set:html={item.a} />
+        </details>
+      ))}
+    </div>
+  </div>
+</section>

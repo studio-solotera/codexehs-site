@@ -1,0 +1,76 @@
+---
+/**
+ * Lemon Squeezy checkout en overlay.
+ *
+ * Necessite que <script src="https://assets.lemonsqueezy.com/lemon.js" defer> soit charge
+ * (deja fait dans Base.astro).
+ *
+ * lemon.js detecte automatiquement les liens dont la classe inclut "lemonsqueezy-button"
+ * ou les liens avec data-attribut, et les transforme en overlay au clic.
+ *
+ * Doc reference : https://docs.lemonsqueezy.com/help/online-store/overlay-checkout
+ *
+ * Si le variantId n'est pas configure (pas encore de KYB LS valide), on
+ * affiche un bouton desactive avec mention "Bientot disponible".
+ *
+ * Props :
+ *   - variantId : ID du variant Lemon Squeezy (depuis env)
+ *   - label : libelle du bouton
+ *   - storeSlug : slug du store LS (par defaut depuis SITE)
+ *   - ariaLabel : label accessibilite
+ *   - size : md | lg
+ *   - mediaQuery (optionnel) : darkmode auto / light / dark
+ */
+
+import { LEMON } from '@data/site';
+
+interface Props {
+  variantId?: string;
+  label?: string;
+  storeSlug?: string;
+  ariaLabel?: string;
+  size?: 'md' | 'lg';
+  disabledLabel?: string;
+}
+
+const {
+  variantId,
+  label = "Acheter maintenant",
+  storeSlug = LEMON.storeSlug,
+  ariaLabel,
+  size = 'lg',
+  disabledLabel = 'Bientot disponible',
+} = Astro.props;
+
+const isActive = Boolean(variantId && variantId.trim().length > 0);
+
+// URL overlay : ?embed=1 + ?media=1 active la modale (et non un redirect)
+// dark mode : on laisse Lemon detecter (param dark=1 optionnel)
+const checkoutUrl = isActive
+  ? `https://${storeSlug}.lemonsqueezy.com/buy/${variantId}?embed=1&media=0&logo=0`
+  : '#';
+
+const sizeStyle = size === 'lg' ? 'padding: 16px 28px; font-size: 18px;' : '';
+---
+
+{isActive ? (
+  <a
+    href={checkoutUrl}
+    class="btn btn--primary lemonsqueezy-button"
+    style={sizeStyle}
+    aria-label={ariaLabel ?? label}
+    data-lemon-checkout="overlay"
+  >
+    {label}
+  </a>
+) : (
+  <button
+    type="button"
+    class="btn btn--primary"
+    style={sizeStyle}
+    disabled
+    aria-label={disabledLabel}
+  >
+    {disabledLabel}
+  </button>
+)}

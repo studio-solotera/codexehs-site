@@ -1,0 +1,27 @@
+---
+import Base from '@layouts/Base.astro';
+---
+
+<Base
+  title="Page introuvable"
+  description="La page demandée n'existe pas."
+  noindex={true}
+>
+  <section class="section">
+    <div class="container container--narrow text-center">
+      <span class="eyebrow" style="font-size: 14px;">Erreur 404</span>
+      <h1 style="font-size: 96px; line-height: 1; color: var(--c-primary-900); margin: 0;">404</h1>
+      <p style="font-size: var(--fs-h2); color: var(--c-primary-900); font-weight: 700; margin-top: var(--space-3);">
+        Cette page n'existe pas (ou plus).
+      </p>
+      <p style="color: var(--c-ink-600); margin-bottom: var(--space-6);">
+        Soit le lien est cassé, soit la page a été déplacée. Voici ce que tu peux faire :
+      </p>
+
+      <div style="display: flex; gap: var(--space-3); justify-content: center; flex-wrap: wrap;">
+        <a href="/" class="btn btn--primary">Retour à l'accueil</a>
+        <a href="/catalogue" class="btn btn--secondary">Voir le catalogue</a>
+      </div>
+    </div>
+  </section>
+</Base>

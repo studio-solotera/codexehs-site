@@ -1,0 +1,74 @@
+---
+import Base from '@layouts/Base.astro';
+import { SITE } from '@data/site';
+---
+
+<Base
+  title="Merci pour votre achat"
+  description="Confirmation et instructions de prise en main de votre template Codex EHS."
+  noindex={true}
+>
+  <section class="section">
+    <div class="container container--narrow">
+      <div style="text-align: center; margin-bottom: var(--space-7);">
+        <div style="display: inline-flex; align-items: center; justify-content: center; width: 80px; height: 80px; border-radius: 50%; background: var(--c-success-soft); color: var(--c-success); margin-bottom: var(--space-4);">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+        </div>
+        <span class="eyebrow">Commande confirmée</span>
+        <h1>Merci pour ta confiance.</h1>
+        <p class="body-l" style="color: var(--c-ink-600); max-width: 56ch; margin: 0 auto;">
+          Ton paiement est validé. Le lien de téléchargement de ton (tes) fichier(s) a été envoyé à ton adresse email.
+        </p>
+      </div>
+
+      <h2>1. Vérifie ta boîte email</h2>
+      <p>
+        Tu devrais avoir reçu deux emails :
+      </p>
+      <ul>
+        <li>Un email de <strong>Lemon Squeezy</strong> avec le lien de téléchargement persistant + ta facture conforme. Tu peux retéléchargcer ton fichier à volonté depuis ce lien.</li>
+        <li>Un email de bienvenue de <strong>Codex EHS</strong> avec quelques conseils de prise en main rapide.</li>
+      </ul>
+      <p style="background: var(--c-warning-soft); border-left: 3px solid var(--c-warning); padding: var(--space-3); border-radius: var(--radius-sm); color: var(--c-warning-ink);">
+        Pas reçu ? Vérifie ton dossier <strong>Spam</strong> ou <strong>Promotions</strong>. Si rien sous 5 minutes, écris-moi : <a href={`mailto:${SITE.email}`} style="color: var(--c-warning-ink); font-weight: 700;">{SITE.email}</a>
+      </p>
+
+      <h2>2. Ouvre le fichier Excel</h2>
+      <p>
+        Le fichier <code>.xlsx</code> s'ouvre dans Microsoft Excel (Windows, Mac, web), LibreOffice Calc et Google Sheets (avec quelques limitations sur les graphiques sur Sheets).
+      </p>
+      <p>
+        Recommandation : Excel 365 desktop pour une expérience optimale. Le fichier est testé sur Excel 365 Windows, Excel 365 Mac, Excel sur le web et LibreOffice 24.2.
+      </p>
+
+      <h2>3. Suis le guide PDF</h2>
+      <p>
+        Le guide d'utilisation PDF est inclus dans l'archive téléchargée. Il fait 11 pages et couvre la prise en main pas-à-pas (Ce que ça fait / Pourquoi / Où cliquer / Quel champ / Quoi vérifier). Compte 30 minutes pour la configuration initiale, puis tu pilotes ton EHS depuis ce fichier au quotidien.
+      </p>
+
+      <h2>4. Une question, un retour, un bug ?</h2>
+      <p>
+        J'ai un seul canal de support et il est direct : <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Je réponds personnellement sous 48 h ouvrées. Toute remontée pertinente est intégrée dans la prochaine version - et tu reçois la mise à jour gratuitement.
+      </p>
+
+      <h2>5. Sur LinkedIn</h2>
+      <p>
+        Si tu veux être au courant des prochains templates (Registre AT, Tableau de Bord, Pack Audit ISO 45001, Kit DUERP), suis-moi sur LinkedIn :
+      </p>
+      <p>
+        <a href={SITE.social.linkedin} target="_blank" rel="noopener" class="btn btn--secondary">
+          Voir mon profil LinkedIn
+        </a>
+      </p>
+
+      <hr class="hr-orange" />
+
+      <p class="small" style="text-align: center;">
+        Encore une fois, merci. Si Codex EHS te fait gagner du temps, je l'aurai mérité.<br />
+        - Guillaume
+      </p>
+    </div>
+  </section>
+</Base>

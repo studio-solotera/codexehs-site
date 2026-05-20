@@ -1,0 +1,195 @@
+---
+import Base from '@layouts/Base.astro';
+import { SITE } from '@data/site';
+
+const lastUpdated = '20 mai 2026';
+---
+
+<Base
+  title="Conditions générales de vente"
+  description={`CGV applicables à la vente de produits numériques Codex EHS. Vendeur : ${SITE.legalName}, SIRET ${SITE.siret}. Traitement des paiements et de la TVA : Lemon Squeezy en tant que Merchant of Record.`}
+>
+  <section class="legal-page">
+    <div class="container container--narrow">
+      <span class="eyebrow">Légal</span>
+      <h1>Conditions générales de vente</h1>
+
+      <div class="legal-page__meta">
+        <strong>Dernière mise à jour :</strong> {lastUpdated}<br />
+        <strong>Vendeur :</strong> {SITE.legalName} - {SITE.name}<br />
+        <strong>SIRET :</strong> {SITE.siret} - <strong>APE :</strong> {SITE.ape}<br />
+        <strong>Régime fiscal :</strong> {SITE.vatStatus}<br />
+        <strong>Contact :</strong> <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
+      </div>
+
+      <h2>Article 1 - Objet et champ d'application</h2>
+      <p>
+        Les présentes conditions générales de vente (« CGV ») régissent les ventes de produits numériques téléchargeables (« Produits ») proposés sur le site <a href={SITE.url}>{SITE.domain}</a> (« le Site ») par {SITE.legalName}, entrepreneur individuel exerçant sous l'enseigne <strong>{SITE.name}</strong>, immatriculé au RCS sous le SIRET {SITE.siret} (« le Vendeur »).
+      </p>
+      <p>
+        Les Produits sont destinés à un usage professionnel (B2B) par des responsables EHS, consultants QHSE et professionnels du domaine. Les CGV sont opposables à tout Acheteur du fait de la commande et de l'acceptation explicite des présentes lors du processus de paiement.
+      </p>
+      <p>
+        Le Vendeur se réserve le droit de modifier les CGV à tout moment. Les CGV applicables sont celles en vigueur à la date de la commande.
+      </p>
+
+      <h2>Article 2 - Produits</h2>
+      <p>
+        Les Produits sont des fichiers numériques téléchargeables (tableurs Excel <code>.xlsx</code>, guides PDF, modèles éditables) destinés à être utilisés dans le cadre d'activités professionnelles EHS / QHSE.
+      </p>
+      <p>
+        Les caractéristiques essentielles de chaque Produit, notamment son contenu, son format technique et ses fonctionnalités, sont décrites sur sa fiche-produit dédiée sur le Site.
+      </p>
+      <p>
+        Le Vendeur s'efforce de présenter aussi fidèlement que possible les Produits. Les captures d'écran et descriptifs ne sont pas contractuels au-delà du contenu effectivement livré dans le fichier numérique téléchargé.
+      </p>
+
+      <h2>Article 3 - Prix et paiement</h2>
+
+      <h3>3.1 Prix</h3>
+      <p>
+        Les prix sont indiqués en euros (€), toutes taxes comprises (« TTC ») le cas échéant, sur la fiche de chaque Produit. Ils sont susceptibles d'évoluer à tout moment ; le prix applicable est celui affiché au moment de la commande.
+      </p>
+
+      <h3>3.2 TVA</h3>
+      <p>
+        Le Vendeur bénéficie du régime de la <strong>franchise en base de TVA</strong> prévu à l'article 293 B du Code général des impôts ; à ce titre, aucune TVA n'est facturée par le Vendeur sur ses ventes en propre. La mention « <em>TVA non applicable - article 293 B du CGI</em> » figure sur les factures émises par le Vendeur.
+      </p>
+      <p>
+        Toutefois, les ventes sur le Site sont opérées via le prestataire <strong>Lemon Squeezy</strong> (Lemon Squeezy Holdings, Inc., États-Unis) en qualité de <em>Merchant of Record</em> : Lemon Squeezy est le vendeur juridique vis-à-vis de l'Acheteur final pour ce qui concerne la TVA et collecte, déclare et reverse la TVA applicable dans le pays de l'Acheteur conformément aux règles fiscales en vigueur (notamment paquet TVA e-commerce de l'Union européenne, règles GST/HST pour le Canada et certains pays tiers).
+      </p>
+      <p>
+        L'Acheteur reçoit donc une facture émise par Lemon Squeezy mentionnant la TVA collectée. Le Vendeur n'intervient pas dans le calcul ni la collecte de cette taxe.
+      </p>
+
+      <h3>3.3 Paiement</h3>
+      <p>
+        Le paiement s'effectue exclusivement en ligne via la plateforme Lemon Squeezy, qui accepte les principales cartes bancaires (Visa, Mastercard, American Express) ainsi que les moyens de paiement locaux dépendant du pays de l'Acheteur (PayPal, Apple Pay, Google Pay, etc.).
+      </p>
+      <p>
+        La commande devient ferme et définitive après confirmation du paiement par Lemon Squeezy. Le Vendeur n'a accès à aucune donnée bancaire à aucun moment.
+      </p>
+
+      <h2>Article 4 - Livraison</h2>
+      <p>
+        Les Produits sont livrés <strong>par voie électronique exclusivement</strong>, sous forme de fichier(s) à télécharger immédiatement après confirmation du paiement.
+      </p>
+      <p>L'Acheteur reçoit :</p>
+      <ul>
+        <li>Un email de confirmation de commande émis par Lemon Squeezy, contenant le lien de téléchargement persistant et la facture.</li>
+        <li>Une redirection vers la page <a href="/merci">/merci</a> du Site contenant les instructions de prise en main.</li>
+      </ul>
+      <p>
+        Le lien de téléchargement reste accessible sans limitation de durée, dans la limite de la pérennité du compte Lemon Squeezy. Il est de la responsabilité de l'Acheteur d'archiver localement le(s) fichier(s) téléchargé(s).
+      </p>
+      <p>
+        En cas de problème technique empêchant la livraison, l'Acheteur peut contacter le Vendeur à <a href={`mailto:${SITE.email}`}>{SITE.email}</a> : une livraison manuelle alternative sera organisée sous 48 heures ouvrées.
+      </p>
+
+      <h2>Article 5 - Droit de rétractation</h2>
+      <p>
+        Conformément à l'article L221-28 13° du Code de la consommation, le droit de rétractation ne peut être exercé pour les contrats de fourniture de contenu numérique non fourni sur un support matériel <strong>dont l'exécution a commencé après accord préalable exprès de l'Acheteur et renoncement exprès à son droit de rétractation</strong>.
+      </p>
+      <p>
+        En validant sa commande sur la page de paiement Lemon Squeezy, l'Acheteur :
+      </p>
+      <ol>
+        <li>donne expressément son accord pour que l'exécution du contrat (téléchargement du Produit) commence immédiatement après confirmation du paiement, sans attendre l'expiration du délai de 14 jours ;</li>
+        <li>reconnaît expressément renoncer, par cette même validation, à son droit de rétractation prévu à l'article L221-18 du Code de la consommation.</li>
+      </ol>
+      <p>
+        Par conséquent, aucun remboursement ne peut être réclamé au seul titre du droit de rétractation après commencement du téléchargement.
+      </p>
+      <p>
+        Cette renonciation est sans préjudice des garanties légales (article 7) et de la politique de remboursement commercial de Lemon Squeezy en cas de défaut technique avéré.
+      </p>
+
+      <h2>Article 6 - Licence d'utilisation et propriété intellectuelle</h2>
+
+      <h3>6.1 Titularité des droits</h3>
+      <p>
+        Tous les Produits, leurs structures, formules, mises en page, contenus textuels et visuels sont la propriété exclusive du Vendeur ou de ses ayants droit. Ils sont protégés par le Code de la propriété intellectuelle.
+      </p>
+
+      <h3>6.2 Licence accordée à l'Acheteur</h3>
+      <p>
+        L'achat d'un Produit confère à l'Acheteur une licence d'utilisation <strong>personnelle, non exclusive, non transférable et à durée illimitée</strong>, dans les conditions suivantes :
+      </p>
+      <ul>
+        <li><strong>Usage interne professionnel :</strong> l'Acheteur peut utiliser le Produit dans le cadre de son activité professionnelle propre (salarié ou entrepreneur), sur un nombre illimité de postes de travail au sein de son organisation.</li>
+        <li><strong>Usage en mission de conseil :</strong> les consultants QHSE et professionnels en mission de conseil peuvent utiliser le Produit dans le cadre de leurs missions chez leurs clients, à condition que le Produit reste un outil de travail et ne soit pas livré au client comme un livrable propre ou revendu.</li>
+        <li><strong>Personnalisation :</strong> l'Acheteur peut modifier le Produit (logo, couleurs, ajout de colonnes, etc.) pour ses besoins propres. Les éléments d'identité visuelle Codex EHS (logo, mention de marque) peuvent être retirés dans le cadre d'une personnalisation client.</li>
+        <li><strong>Mises à jour :</strong> l'Acheteur bénéficie des mises à jour ultérieures du Produit acheté, sans frais supplémentaire, pendant toute la durée de la licence.</li>
+      </ul>
+
+      <h3>6.3 Usages interdits</h3>
+      <p>L'Acheteur s'interdit expressément de :</p>
+      <ul>
+        <li>revendre, redistribuer, partager ou diffuser le Produit, sous quelque forme que ce soit, à un tiers (qu'il s'agisse d'une revente commerciale, d'un partage gratuit ou d'une mise en accès libre) ;</li>
+        <li>produire, à partir du Produit, un dérivé ayant vocation à être commercialisé sous la marque de l'Acheteur ou d'un tiers, en concurrence directe avec Codex EHS ;</li>
+        <li>publier le Produit, même partiellement, sur une plateforme de partage publique ou sur internet ;</li>
+        <li>retirer les mentions de copyright ou la cellule de marquage Codex EHS dans le cadre d'un usage interne non personnalisé pour un client.</li>
+      </ul>
+
+      <h2>Article 7 - Garanties</h2>
+      <p>
+        Le Vendeur garantit que les Produits livrés sont conformes à leur description sur le Site et exempts de défauts techniques rendant leur utilisation impossible (fichier corrompu, formules cassées, etc.).
+      </p>
+      <p>
+        En cas de défaut technique avéré, l'Acheteur dispose d'un délai de <strong>30 jours</strong> à compter de la livraison pour le signaler à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Le Vendeur s'engage à fournir un fichier corrigé sous 7 jours ouvrés ou, à défaut de correction possible, à procéder au remboursement intégral du Produit via Lemon Squeezy.
+      </p>
+      <p>
+        Le Vendeur ne garantit pas l'adéquation du Produit à des besoins spécifiques non décrits dans la fiche-produit, ni la conformité du Produit à des réglementations locales ou sectorielles qui ne seraient pas mentionnées explicitement.
+      </p>
+      <p>
+        L'usage du Produit reste sous la responsabilité de l'Acheteur, en particulier pour ce qui concerne la conformité de ses propres documents EHS aux exigences légales applicables à son activité et son territoire.
+      </p>
+
+      <h2>Article 8 - Responsabilité</h2>
+      <p>
+        La responsabilité du Vendeur est limitée au montant effectivement payé par l'Acheteur pour le Produit concerné.
+      </p>
+      <p>
+        Le Vendeur ne saurait être tenu responsable :
+      </p>
+      <ul>
+        <li>des dommages indirects (perte d'exploitation, perte de chance, perte de données) résultant de l'utilisation du Produit ;</li>
+        <li>de l'inadéquation du Produit à des besoins spécifiques non explicitement couverts par sa description ;</li>
+        <li>des conséquences d'une utilisation non conforme aux instructions fournies dans le guide d'utilisation ;</li>
+        <li>d'un défaut de la plateforme Lemon Squeezy (paiement, accès au téléchargement, facturation) ;</li>
+        <li>d'une indisponibilité du Site ou des services tiers utilisés (Cloudflare Pages, etc.).</li>
+      </ul>
+
+      <h2>Article 9 - Données personnelles</h2>
+      <p>
+        Le traitement des données personnelles de l'Acheteur est régi par la <a href="/confidentialite">Politique de confidentialité</a> accessible sur le Site, conforme au Règlement général sur la protection des données (RGPD).
+      </p>
+
+      <h2>Article 10 - Réclamation et règlement amiable</h2>
+      <p>
+        Toute réclamation doit être adressée par email à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. Le Vendeur s'engage à apporter une réponse circonstanciée sous 7 jours ouvrés.
+      </p>
+      <p>
+        Conformément à l'article L612-1 du Code de la consommation, et bien que les Produits soient destinés à un usage professionnel, en cas d'achat par un consommateur l'Acheteur peut recourir gratuitement au médiateur de la consommation suivant : <strong>[MEDIATEUR_A_DESIGNER_LORS_INSCRIPTION]</strong> (le Vendeur s'inscrira auprès d'un médiateur de la consommation agréé dans les 30 jours suivant la première vente à un consommateur ; dans l'intervalle aucune vente n'est sciemment réalisée auprès de consommateurs).
+      </p>
+      <p>
+        L'Acheteur peut également recourir à la plateforme européenne de règlement en ligne des litiges : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr</a>
+      </p>
+
+      <h2>Article 11 - Loi applicable et juridiction compétente</h2>
+      <p>
+        Les présentes CGV sont régies par le droit français. Tout litige relatif à leur formation, leur exécution ou leur interprétation, à défaut de résolution amiable, sera porté devant les tribunaux français compétents selon les règles de droit commun, sous réserve des dispositions impératives plus favorables au consommateur.
+      </p>
+
+      <h2>Article 12 - Acceptation</h2>
+      <p>
+        En cochant la case d'acceptation des CGV lors du processus de commande, l'Acheteur reconnaît avoir pris connaissance des présentes conditions, les comprendre et les accepter sans réserve. Cette acceptation est nécessaire à la validation de toute commande.
+      </p>
+
+      <hr class="hr-thin" />
+      <p class="small">
+        Dernière mise à jour : {lastUpdated}. Une version archivée des CGV en vigueur au moment de chaque commande est conservée et peut être communiquée sur simple demande à <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+      </p>
+    </div>
+  </section>
+</Base>

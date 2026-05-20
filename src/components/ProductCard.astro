@@ -1,0 +1,53 @@
+---
+/**
+ * Carte produit catalogue.
+ * Rend une carte cliquable si le produit est actif (statut "active"),
+ * sinon une carte non-cliquable avec mention "Bientot disponible".
+ */
+import type { Product } from '@data/products';
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+const isActive = product.status === 'active';
+const detailUrl = `/produits/${product.slug}`;
+
+// Element : a si actif, div sinon
+const Tag = isActive ? 'a' : 'div';
+---
+
+<Tag
+  class={`product-card ${product.status === 'soon' ? 'product-card--bientot' : ''}`}
+  {...(isActive ? { href: detailUrl } : {})}
+>
+  <div class="product-card__top">
+    <span class="tag tag--ehs">{product.category}</span>
+    <div>
+      <span class="product-card__price">{product.price} &euro;</span>
+    </div>
+  </div>
+
+  <h3 class="product-card__title">{product.title}</h3>
+  <p class="product-card__pitch">{product.pitch}</p>
+
+  <ul class="product-card__features">
+    {product.features.slice(0, 4).map((f) => <li>{f}</li>)}
+  </ul>
+
+  <div class="product-card__footer">
+    {isActive ? (
+      <>
+        <span class="product-card__status">Disponible</span>
+        <span class="micro" style="color: var(--c-primary-700);">Voir le produit &rarr;</span>
+      </>
+    ) : (
+      <>
+        <span class="product-card__status">
+          Bientot disponible{product.releaseEta ? ` - ${product.releaseEta}` : ''}
+        </span>
+      </>
+    )}
+  </div>
+</Tag>

@@ -1,0 +1,33 @@
+---
+import Base from '@layouts/Base.astro';
+import ProductCard from '@components/ProductCard.astro';
+import { PRODUCTS } from '@data/products';
+---
+
+<Base
+  title="Catalogue"
+  description="Les 5 templates Codex EHS : Plan d'Action EHS, Registre AT, Tableau de Bord, Pack Audit ISO 45001, Kit DUERP. Outils prêts à l'emploi pour responsables EHS solos en PME industrielle."
+>
+  <section class="section">
+    <div class="container">
+      <div class="text-center mb-6">
+        <span class="eyebrow">Catalogue Codex EHS</span>
+        <h1>5 outils, une couverture complète de l'année EHS</h1>
+        <p style="max-width: 64ch; margin: 0 auto; color: var(--c-ink-600); font-size: var(--fs-body-l);">
+          Du plan d'action quotidien à la préparation d'audit ISO 45001, en passant par le registre AT et le DUERP. Achète à l'unité, mises à jour à vie incluses. Aucun bundle forcé.
+        </p>
+      </div>
+
+      <div class="product-grid">
+        {PRODUCTS.map((product) => <ProductCard product={product} />)}
+      </div>
+
+      <div class="text-center mt-6">
+        <p style="color: var(--c-ink-600); font-size: var(--fs-small);">
+          Tous les templates partagent le même design system, le même vocabulaire et la même logique multi-pays. <br />
+          Quand tu en maîtrises un, tu maîtrises les cinq.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

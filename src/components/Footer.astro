@@ -1,0 +1,51 @@
+---
+import { SITE } from '@data/site';
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__brand">
+        <img src="/logos/wordmark.svg" alt={SITE.name} height="32" />
+        <p style="font-size: var(--fs-small); margin-top: var(--space-3);">
+          {SITE.tagline} {SITE.baseline}
+        </p>
+        <p style="font-size: var(--fs-small);">
+          Templates Excel et guides EHS<br />pour responsables solos de PME industrielles.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Produits</h4>
+        <ul>
+          <li><a href="/produits/plan-action-ehs">Plan d'Action EHS</a></li>
+          <li><a href="/catalogue">Catalogue complet</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Codex EHS</h4>
+        <ul>
+          <li><a href="/a-propos">A propos</a></li>
+          <li><a href={`mailto:${SITE.email}`}>Contact</a></li>
+          <li><a href={SITE.social.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/cgv">CGV</a></li>
+          <li><a href="/mentions-legales">Mentions legales</a></li>
+          <li><a href="/confidentialite">Confidentialite</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <span>&copy; {year} {SITE.legalName} - {SITE.name}. Tous droits reserves.</span>
+      <span>SIRET {SITE.siret} - APE {SITE.ape}</span>
+    </div>
+  </div>
+</footer>

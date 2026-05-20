@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Codex EHS">
+  <title>Codex EHS - Le kit du Responsable EHS solo - Audit-ready en 48h</title>
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F2A47"/>
+      <stop offset="100%" stop-color="#1E4574"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .og-display { font-family: 'Inter', system-ui, sans-serif; font-weight: 800; }
+    .og-body { font-family: 'Inter', system-ui, sans-serif; font-weight: 400; }
+    .og-eyebrow { font-family: 'Inter', system-ui, sans-serif; font-weight: 600; letter-spacing: 0.08em; }
+  </style>
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  <!-- Decor pattern orange en arriere-plan -->
+  <circle cx="1080" cy="120" r="200" fill="#F26B1F" opacity="0.08"/>
+  <circle cx="100" cy="540" r="120" fill="#F26B1F" opacity="0.05"/>
+  <!-- Eyebrow -->
+  <text x="80" y="160" class="og-eyebrow" font-size="22" fill="#F26B1F">CODEX EHS</text>
+  <!-- Titre principal -->
+  <text x="80" y="280" class="og-display" font-size="76" fill="#FFFFFF" letter-spacing="-2">Le kit du Responsable</text>
+  <text x="80" y="360" class="og-display" font-size="76" fill="#FFFFFF" letter-spacing="-2">EHS solo.</text>
+  <!-- Barre orange -->
+  <rect x="80" y="400" width="120" height="6" fill="#F26B1F"/>
+  <!-- Baseline -->
+  <text x="80" y="460" class="og-body" font-size="32" fill="#92AECD">Audit-ready en 48h.</text>
+  <!-- Footer URL -->
+  <text x="80" y="570" class="og-eyebrow" font-size="20" fill="#92AECD">codexehs.com</text>
+  <!-- Mini logo en bas a droite -->
+  <g transform="translate(1000, 510)">
+    <rect x="0" y="0" width="120" height="120" rx="8" fill="#FFFFFF" opacity="0.95"/>
+    <text x="60" y="54" font-family="'Inter', system-ui, sans-serif" font-weight="900" font-size="18" fill="#0F2A47" text-anchor="middle">CODEX</text>
+    <rect x="34" y="62" width="52" height="3" fill="#F26B1F"/>
+    <text x="60" y="92" font-family="'Inter', system-ui, sans-serif" font-weight="900" font-size="28" fill="#0F2A47" text-anchor="middle" letter-spacing="1.5">EHS</text>
+  </g>
+</svg>
