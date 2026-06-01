@@ -1,0 +1,347 @@
+---
+// src/components/sales/ProductPreview.astro
+// Aperçu produit : 6 screenshots annotés du fichier démo.
+// Chaque visuel a sa propre légende avec ce qu’il faut regarder.
+
+const screenshots = [
+  {
+    id: "plan-action",
+    num: "01",
+    title: "Plan d’action centralisé",
+    src: "/visuels/01-plan-action.svg",
+    alt: "Vue du tableau Plan d’action avec 500 lignes, statuts colorés, criticité auto-classée",
+    desc:
+      "Une ligne = une action. 25 colonnes structurées, 500 actions, " +
+      "4591 formules qui tournent en arrière-plan. Tu remplis les " +
+      "champs clés, le statut, la criticité et les alertes calculent " +
+      "tout seuls.",
+    highlights: [
+      "Statut « EN RETARD » déclenché automatiquement à J+1",
+      "Criticité = Gravité × Probabilité, classification auto",
+      "Filtres et gel d’en-têtes pour ne jamais perdre le fil",
+    ],
+  },
+  {
+    id: "dashboard",
+    num: "02",
+    title: "Dashboard 6 KPI temps réel",
+    src: "/visuels/02-dashboard-kpi.svg",
+    alt: "Dashboard avec 6 KPI cards, donut et line chart 12 mois",
+    desc:
+      "L’onglet que tu projettes en CSSCT. Six KPI, deux graphiques, " +
+      "une vue temps réel de ton plan. Zéro tableau croisé dynamique " +
+      "à reconstruire chaque mois.",
+    highlights: [
+      "Actions ouvertes, taux d’avancement, retards, criticité moyenne",
+      "Répartition par statut + tendance 12 mois glissants",
+      "Filtres par colonne : Service · Secteur · Criticité · Mois · Pilote",
+    ],
+  },
+  {
+    id: "planning",
+    num: "03",
+    title: "Planning 12 mois glissants",
+    src: "/visuels/03-planning-12mois.svg",
+    alt: "Vue planning type Gantt avec mois courant en surbrillance",
+    desc:
+      "Toutes tes échéances sur une seule timeline, triées par " +
+      "criticité décroissante. Le mois courant est mis en avant. " +
+      "Tu vois en trois secondes ce qui doit tomber cette semaine.",
+    highlights: [
+      "Tri par criticité : ce qui brûle remonte automatiquement",
+      "Marqueurs colorés par niveau (Critique → Faible)",
+      "Réimprimable en A3 pour affichage atelier",
+    ],
+  },
+  {
+    id: "heatmap",
+    num: "04",
+    title: "Matrice criticité 5×5",
+    src: "/visuels/04-heatmap-criticite.svg",
+    alt: "Heatmap criticité Gravité × Probabilité avec décompte par niveau",
+    desc:
+      "La carte de chaleur que tout auditeur veut voir. Gravité en " +
+      "abscisse, Probabilité en ordonnée, color scale calibrée. Tes " +
+      "actions critiques sortent toutes seules.",
+    highlights: [
+      "Classification automatique en 4 niveaux (Faible → Critique)",
+      "Décompte chiffré par zone pour la revue de direction",
+      "Diagnostic ISO 45001 / 14001 prêt en 30 secondes",
+    ],
+  },
+  {
+    id: "mobile",
+    num: "05",
+    title: "Consultable sur tablette et téléphone",
+    src: "/visuels/05-vue-mobile.svg",
+    alt: "Aperçu iPad et iPhone avec table mobile et carte alerte critique",
+    desc:
+      "Excel mobile (gratuit) lit le fichier proprement. Tu peux consulter " +
+      "ton dashboard en revue terrain, valider une action depuis le " +
+      "couloir, montrer la heatmap en réunion sans VGA.",
+    highlights: [
+      "Layout adapté iPad et iPhone sans manipulation",
+      "Alertes critiques visibles en première vue",
+      "Édition en ligne via OneDrive / SharePoint",
+    ],
+  },
+  {
+    id: "multi-pays",
+    num: "06",
+    title: "1 cellule, 8 pays francophones",
+    src: "/visuels/06-adaptation-pays.svg",
+    alt: "Configuration multi-pays : changer le code pays bascule tout le référentiel",
+    desc:
+      "France, Belgique, Suisse, Luxembourg, Québec, Maroc, Tunisie, " +
+      "Algérie. Tu changes le code pays dans l’onglet Démarrer, les " +
+      "références réglementaires, devises et formats de date suivent.",
+    highlights: [
+      "8 référentiels pays prêts à l’emploi",
+      "Vocabulaire EHS adapté (CSSCT, CSE, CHST, OHSC…)",
+      "Idéal pour les groupes multi-sites ou les consultants nomades",
+    ],
+  },
+];
+---
+
+<section class="preview" id="apercu" aria-labelledby="preview-title">
+  <div class="preview__inner">
+    <header class="preview__header">
+      <span class="eyebrow">
+        <span class="dot"></span> Aperçu produit
+      </span>
+      <h2 id="preview-title" class="preview__title">
+        À quoi ça ressemble en vrai
+      </h2>
+      <p class="preview__lead">
+        Pas de screenshots Pinterest. Voici le vrai fichier, avec les
+        vrais chiffres, dans son vrai état d’utilisation après quelques
+        semaines.
+      </p>
+    </header>
+
+    <div class="preview__grid">
+      {screenshots.map((s, i) => (
+        <article
+          class={`shot ${i % 2 === 1 ? "shot--alt" : ""}`}
+          aria-labelledby={`shot-${s.id}`}
+        >
+          <div class="shot__visual">
+            <div class="shot__frame">
+              <img src={s.src} alt={s.alt} loading="lazy" />
+            </div>
+          </div>
+
+          <div class="shot__body">
+            <span class="shot__num">{s.num}</span>
+            <h3 id={`shot-${s.id}`} class="shot__title">{s.title}</h3>
+            <p class="shot__desc">{s.desc}</p>
+            <ul class="shot__highlights">
+              {s.highlights.map((h) => (
+                <li>
+                  <svg
+                    class="shot__check"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M4 10.5l4 4 8-9"
+                      stroke="currentColor"
+                      stroke-width="2.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .preview {
+    padding: clamp(64px, 9vw, 112px) 0;
+    background: var(--c-bg-soft);
+  }
+
+  .preview__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 40px);
+  }
+
+  .preview__header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(48px, 6vw, 72px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-primary-700);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-action);
+  }
+
+  .preview__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--c-primary-900);
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .preview__lead {
+    font-size: 17px;
+    color: var(--c-ink-600);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .preview__grid {
+    display: grid;
+    gap: clamp(56px, 7vw, 96px);
+  }
+
+  .shot {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+
+  .shot--alt {
+    grid-template-columns: 0.85fr 1.15fr;
+  }
+
+  .shot--alt .shot__visual {
+    order: 2;
+  }
+
+  .shot__visual {
+    position: relative;
+  }
+
+  .shot__frame {
+    background: #fff;
+    border: 1px solid var(--c-line);
+    border-radius: 14px;
+    padding: 14px;
+    box-shadow:
+      0 1px 2px rgba(15, 42, 71, 0.04),
+      0 12px 32px -8px rgba(15, 42, 71, 0.12),
+      0 32px 64px -16px rgba(15, 42, 71, 0.08);
+    transform: rotate(-0.3deg);
+    transition: transform 0.3s ease;
+  }
+
+  .shot--alt .shot__frame {
+    transform: rotate(0.3deg);
+  }
+
+  .shot__frame:hover {
+    transform: rotate(0deg) translateY(-3px);
+  }
+
+  .shot__frame img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  .shot__num {
+    display: inline-block;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--c-action);
+    background: rgba(242, 107, 31, 0.1);
+    padding: 4px 10px;
+    border-radius: 4px;
+    margin-bottom: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  .shot__title {
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 700;
+    color: var(--c-primary-900);
+    margin: 0 0 14px;
+    line-height: 1.25;
+    letter-spacing: -0.015em;
+  }
+
+  .shot__desc {
+    font-size: 16px;
+    color: var(--c-ink-600);
+    line-height: 1.6;
+    margin: 0 0 20px;
+  }
+
+  .shot__highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .shot__highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 15px;
+    color: var(--c-primary-900);
+    line-height: 1.5;
+  }
+
+  .shot__check {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    color: var(--c-success);
+    margin-top: 2px;
+  }
+
+  @media (max-width: 820px) {
+    .shot,
+    .shot--alt {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    .shot--alt .shot__visual {
+      order: 0;
+    }
+
+    .shot__frame {
+      transform: none;
+    }
+
+    .shot--alt .shot__frame {
+      transform: none;
+    }
+  }
+</style>

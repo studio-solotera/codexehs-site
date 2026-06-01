@@ -1,250 +1,127 @@
 ---
-import Base from '@layouts/Base.astro';
-import LemonCheckoutButton from '@components/LemonCheckoutButton.astro';
-import FAQ from '@components/FAQ.astro';
-import { SITE } from '@data/site';
-import { getProduct } from '@data/products';
+// src/pages/produits/plan-action-ehs.astro
+// Page de vente complète du Plan d’Action EHS Dynamique.
+// Assemble les 10 composants de la section sales/.
+// CODEX EHS — page de vente Plan d’Action.
 
-const product = getProduct('plan-action-ehs');
-if (!product) throw new Error('Produit plan-action-ehs introuvable');
+import Base from "../../layouts/Base.astro";
+import SalesHero from "../../components/sales/SalesHero.astro";
+import Personas from "../../components/sales/Personas.astro";
+import PainPoints from "../../components/sales/PainPoints.astro";
+import Solution from "../../components/sales/Solution.astro";
+import ProductPreview from "../../components/sales/ProductPreview.astro";
+import WhatIsIncluded from "../../components/sales/WhatIsIncluded.astro";
+import FaqSales from "../../components/sales/FaqSales.astro";
+import Guarantee from "../../components/sales/Guarantee.astro";
+import FinalCta from "../../components/sales/FinalCta.astro";
+import Testimonials from "../../components/sales/Testimonials.astro";
+import { SITE } from "../../config/site";
 
-// Variant ID lu depuis env (sera defini une fois LS configure)
-const variantId = import.meta.env.PUBLIC_LEMON_VARIANT_PLAN_ACTION as string | undefined;
+// Variable Lemon Squeezy (à renseigner après KYB validé).
+const variantId = import.meta.env.LEMON_VARIANT_PLAN_ACTION ?? "";
+const price = "89 €";
 
-// FAQ items (le copywriting complet sera affine en FIL_05, ici on pose les questions structurelles)
-const faqItems = [
-  {
-    q: "Est-ce que ça marche avec Excel pour Mac, Excel Online et LibreOffice ?",
-    a: "<p>Oui. Le fichier a été testé sur Excel 365 desktop (Windows et Mac), Excel sur le web, et LibreOffice 24.2. Toutes les formules utilisent uniquement des fonctions supportées par ces quatre environnements (INDEX/MATCH, SUMPRODUCT, EDATE, CHOOSE, etc.). Les fonctions Excel 365 exclusives comme XLOOKUP ou LET ont été volontairement évitées pour garantir la portabilité.</p>"
+// JSON-LD Product + Offer pour le SEO.
+const productJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Product",
+  name: "Plan d’Action EHS Dynamique",
+  description:
+    "Plan d’action EHS dynamique pour Excel : 500 lignes, 4591 formules, " +
+    "dashboard KPI auto-calculé, planning 12 mois glissants, matrice de " +
+    "criticité 5x5, adaptation 8 pays francophones. Compatible Excel 2016 " +
+    "à 365, Windows et Mac.",
+  image: `${SITE.url}/visuels/02-dashboard-kpi.svg`,
+  brand: {
+    "@type": "Brand",
+    name: "CODEX EHS",
   },
-  {
-    q: "Combien de temps faut-il pour le mettre en route ?",
-    a: "<p>30 minutes pour une configuration complète à partir de zéro (ton nom, ton entreprise, ton mois de début d'exercice fiscal, le pays/devise, les sites de production, le découpage par secteurs). Si tu veux juste tester avec le fichier de démo pré-rempli avec 30 actions industrie générique, c'est immédiat.</p>"
-  },
-  {
-    q: "Le fichier est-il vraiment compatible audit ISO 45001 ?",
-    a: "<p>Le Plan d'Action EHS Dynamique respecte la structure attendue par un audit ISO 45001 / 14001 : traçabilité de chaque action (qui, quoi, quand, où), criticité G x P documentée, statut horodaté, lien avec le site et le secteur. Le vocabulaire utilisé est à jour (CSSCT, CARSAT, DREAL — pas les anciennes appellations CHSCT, CRAM, DRIRE).</p><p>Ce n'est pas un substitut à un système de management complet, mais un outil de pilotage du plan d'action qui s'intègre dans ce système.</p>"
-  },
-  {
-    q: "Y a-t-il un fichier de démonstration avant achat ?",
-    a: `<p>Oui. Le fichier de démo contient 30 actions pré-remplies sur une industrie générique (mix : 13 en cours, 8 réalisées, 5 à planifier, 4 en retard). Tu peux l'ouvrir, naviguer dans les 6 onglets, tester les dashboards, jouer avec la cellule "Pays".</p><p>Pour le télécharger, contacte-nous à <a href="mailto:${SITE.email}">${SITE.email}</a>, on te l'envoie en retour de mail.</p>`
-  },
-  {
-    q: "Et si j'ai besoin d'une fonctionnalité spécifique ?",
-    a: "<p>Toute demande d'amélioration validée et utile à la communauté est intégrée dans la prochaine version. Les acheteurs reçoivent les mises à jour à vie, sans frais supplémentaires.</p>"
-  },
-  {
-    q: "Comment se passe la livraison ?",
-    a: "<p>Téléchargement immédiat après paiement. Tu reçois aussi un email avec le lien de téléchargement persistant et l'accès à la page \"merci\" qui contient les instructions de prise en main.</p>"
-  },
-  {
-    q: "Puis-je avoir un remboursement ?",
-    a: "<p>Le produit étant livré numériquement et téléchargeable immédiatement, tu renonces expressément à ton droit de rétractation au moment de la commande (article L221-28 13° du Code de la consommation). Si tu rencontres un problème technique, contacte-nous : on cherche la solution avec toi.</p>"
-  },
-  {
-    q: "Je suis consultant QHSE, est-ce que je peux utiliser le fichier chez mes clients ?",
-    a: "<p>Oui. La licence inclut un usage pour ton activité, y compris les missions chez tes clients (licence \"Consultant\" implicite à l'achat). Tu ne peux pas le revendre tel quel ou en faire un produit dérivé public. Tu peux le personnaliser à tes couleurs et logos pour chaque client.</p>"
-  },
-  {
-    q: "Et la TVA ?",
-    a: `<p>Le paiement passe par Lemon Squeezy, Merchant of Record, qui collecte et déclare la TVA pour ton pays. Tu reçois une facture conforme. ${SITE.legalName} est en franchise en base de TVA (article 293 B CGI), donc aucune TVA française n'est ajoutée par Codex EHS : c'est Lemon Squeezy qui gère selon les règles du pays de l'acheteur.</p>`
-  },
-  {
-    q: "Vous proposez du sur-mesure ?",
-    a: `<p>Non pour l'instant. Le positionnement Codex EHS est volontairement produit, pas service. Si tu cherches un accompagnement, contacte-nous directement à <a href="mailto:${SITE.email}">${SITE.email}</a> pour qu'on regarde si on peut t'orienter vers un confrère.</p>`
-  }
-];
-
-// JSON-LD : Product + Offer + FAQPage
-const jsonLd = [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: product.title,
-    description: product.longPitch ?? product.pitch,
-    brand: {
-      '@type': 'Brand',
-      name: SITE.name
+  offers: {
+    "@type": "Offer",
+    url: `${SITE.url}/produits/plan-action-ehs`,
+    priceCurrency: "EUR",
+    price: "89.00",
+    availability: "https://schema.org/InStock",
+    priceValidUntil: "2027-12-31",
+    seller: { "@type": "Organization", name: "CODEX EHS" },
+    hasMerchantReturnPolicy: {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: ["FR", "BE", "CH", "LU", "QC", "MA", "TN", "DZ"],
+      returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
     },
-    sku: `CODEXEHS-${product.slug}`,
-    category: product.category,
-    image: `${SITE.url}/images/${product.slug}-og.png`,
-    offers: {
-      '@type': 'Offer',
-      url: `${SITE.url}/produits/${product.slug}`,
-      priceCurrency: product.currency,
-      price: product.price.toFixed(2),
-      availability: 'https://schema.org/InStock',
-      itemCondition: 'https://schema.org/NewCondition',
-      seller: {
-        '@type': 'Organization',
-        name: SITE.name
-      }
-    }
   },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.q,
+};
+
+// JSON-LD FAQ pour le SEO.
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [
+    {
+      "@type": "Question",
+      name: "Sur quelle version d’Excel le Plan d’Action EHS fonctionne-t-il ?",
       acceptedAnswer: {
-        '@type': 'Answer',
-        // On strip le HTML pour le JSON-LD (recommandation Google : texte brut)
-        text: item.a.replace(/<[^>]+>/g, '').trim()
-      }
-    }))
-  }
-];
+        "@type": "Answer",
+        text:
+          "Excel 2016, 2019, 2021 et Microsoft 365, sur Windows comme sur " +
+          "Mac. Le fichier n’utilise que des fonctions standard (INDEX/EQUIV, " +
+          "SOMMEPROD, NB.SI.ENS) et aucune fonction réservée à l’abonnement " +
+          "365 : une licence Office déjà installée suffit.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Un seul fichier suffit-il pour gérer plusieurs pays ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "Oui. Un seul fichier maître couvre 8 pays francophones (FR, BE, " +
+          "CH, LU, QC, MA, TN, DZ). Il suffit de changer une cellule dans " +
+          "l’onglet Démarrer ici : références réglementaires et vocabulaire " +
+          "EHS s’adaptent.",
+      },
+    },
+    {
+      "@type": "Question",
+      name: "Et si le fichier ne me convient pas ?",
+      acceptedAnswer: {
+        "@type": "Answer",
+        text:
+          "Tu vois l’aperçu détaillé du fichier (six onglets, vraies " +
+          "formules, vrai dashboard) avant d’acheter. Le produit étant un " +
+          "contenu numérique livré immédiatement, le droit de rétractation " +
+          "ne s’applique pas (art. L221-28 du Code de la consommation), donc " +
+          "pas de remboursement de confort. Tout souci technique réel " +
+          "(fichier non conforme, lien défaillant, double débit) est corrigé " +
+          "ou remboursé de bonne foi via contact@codexehs.com. Support email " +
+          "30 jours inclus.",
+      },
+    },
+  ],
+};
+
+const title = "Plan d’Action EHS Dynamique — Excel audit-ready · CODEX EHS";
+const description =
+  "Plan d’action EHS multi-pays clé en main pour Excel (2016 à 365). " +
+  "Dashboard KPI auto-calculé, planning 12 mois, matrice criticité 5×5. " +
+  "89 € TTC, livraison instantanée, aperçu complet avant achat.";
 ---
 
 <Base
-  title={product.title}
-  description={product.longPitch ?? product.pitch}
-  jsonLd={jsonLd}
+  title={title}
+  description={description}
+  jsonLd={[productJsonLd, faqJsonLd]}
 >
-  {/* ============= HERO PRODUIT ============= */}
-  <section class="pdp">
-    <div class="container">
-      <nav style="font-size: var(--fs-small); color: var(--c-ink-400); margin-bottom: var(--space-5);" aria-label="Fil d'Ariane">
-        <a href="/" style="color: var(--c-ink-600);">Accueil</a>
-        <span style="margin: 0 8px;">/</span>
-        <a href="/catalogue" style="color: var(--c-ink-600);">Catalogue</a>
-        <span style="margin: 0 8px;">/</span>
-        <span style="color: var(--c-ink-900);">{product.shortTitle}</span>
-      </nav>
-
-      <div class="pdp__layout">
-        {/* COLONNE GAUCHE - CONTENU */}
-        <div>
-          <span class="eyebrow">{product.category} - Codex EHS</span>
-          <h1 style="font-size: var(--fs-display); line-height: var(--lh-display); letter-spacing: var(--ls-display); margin-bottom: var(--space-4);">
-            {product.title}
-          </h1>
-          <p style="font-size: var(--fs-body-l); color: var(--c-ink-600); line-height: var(--lh-body-l); margin-bottom: var(--space-6);">
-            {product.longPitch}
-          </p>
-
-          {/* Highlights */}
-          <div style="display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-7);">
-            {product.highlights.map((h) => (
-              <span class="badge badge--ok">✓ {h}</span>
-            ))}
-          </div>
-
-          {/* Apercu visuel (placeholder pour screenshots produit a venir en FIL_05) */}
-          <div style="background: var(--c-bg-soft); border: 2px dashed var(--c-line); border-radius: var(--radius-lg); padding: var(--space-7); text-align: center; margin-bottom: var(--space-7);">
-            <p class="micro" style="color: var(--c-ink-400);">
-              [Screenshots produit - FIL_05]
-            </p>
-            <p style="color: var(--c-ink-600); margin-top: var(--space-2);">
-              6 captures annotées (Démarrer ici, Plan d'action, Dashboard, Planning, Référentiels, Indicateurs annuels)
-            </p>
-          </div>
-
-          {/* Ce qui est inclus */}
-          <h2>Ce qui est inclus</h2>
-          <ul style="list-style: none; padding: 0; margin: 0;">
-            {product.features.map((f) => (
-              <li style="display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--c-line-soft); align-items: flex-start;">
-                <span style="color: var(--c-success); flex-shrink: 0; font-weight: 700;">✓</span>
-                <span>{f}</span>
-              </li>
-            ))}
-          </ul>
-
-          {/* Audiences */}
-          <h2 style="margin-top: var(--space-7);">Pour qui ?</h2>
-          <div class="grid-2">
-            <div style="background: var(--c-bg-soft); padding: var(--space-4); border-radius: var(--radius-md); border-left: 3px solid var(--c-primary-700);">
-              <h3 style="font-size: var(--fs-body-l); margin-bottom: var(--space-2);">Responsable EHS solo en PME 80-300 salariés</h3>
-              <p class="small" style="margin: 0;">Tu portes l'EHS seul. Tu veux un outil qui te fasse gagner du temps sans te forcer à apprendre une plateforme SaaS.</p>
-            </div>
-            <div style="background: var(--c-bg-soft); padding: var(--space-4); border-radius: var(--radius-md); border-left: 3px solid var(--c-action);">
-              <h3 style="font-size: var(--fs-body-l); margin-bottom: var(--space-2);">Consultant QHSE indépendant débutant</h3>
-              <p class="small" style="margin: 0;">Tu démarres ton activité. Tu veux livrer dès la mission 1 un outil pro, sans réinventer la roue pour chaque client.</p>
-            </div>
-            <div style="background: var(--c-bg-soft); padding: var(--space-4); border-radius: var(--radius-md); border-left: 3px solid var(--c-success);">
-              <h3 style="font-size: var(--fs-body-l); margin-bottom: var(--space-2);">EHS Manager dans ses 90 premiers jours</h3>
-              <p class="small" style="margin: 0;">Tu viens d'être nommé. Tu veux montrer rapidement une structure de pilotage à ta hiérarchie sans passer 3 semaines en Excel.</p>
-            </div>
-            <div style="background: var(--c-bg-soft); padding: var(--space-4); border-radius: var(--radius-md); border-left: 3px solid var(--c-primary-900);">
-              <h3 style="font-size: var(--fs-body-l); margin-bottom: var(--space-2);">Site industriel multi-pays</h3>
-              <p class="small" style="margin: 0;">Tu pilotes l'EHS sur plusieurs entités francophones. Le fichier s'adapte au vocabulaire et à la devise par simple changement de cellule.</p>
-            </div>
-          </div>
-        </div>
-
-        {/* COLONNE DROITE - BUYBOX STICKY */}
-        <aside>
-          <div class="pdp__buybox">
-            <div class="pdp__price-row">
-              <span class="pdp__price">{product.price} &euro;</span>
-              <span class="pdp__tva">TTC, paiement unique</span>
-            </div>
-
-            <p style="font-size: var(--fs-small); color: var(--c-ink-600); margin-bottom: var(--space-4);">
-              Téléchargement immédiat. Mises à jour à vie incluses. Licence usage perso + missions client.
-            </p>
-
-            <LemonCheckoutButton
-              variantId={variantId}
-              label="Acheter et télécharger"
-              size="lg"
-            />
-
-            <div style="margin-top: var(--space-5);">
-              <div class="pdp__buybox-feature">
-                <span style="color: var(--c-success); flex-shrink: 0;">✓</span>
-                <span>Excel .xlsx (6 onglets, 4 591 formules)</span>
-              </div>
-              <div class="pdp__buybox-feature">
-                <span style="color: var(--c-success); flex-shrink: 0;">✓</span>
-                <span>Guide d'utilisation PDF (11 pages)</span>
-              </div>
-              <div class="pdp__buybox-feature">
-                <span style="color: var(--c-success); flex-shrink: 0;">✓</span>
-                <span>Démo 30 actions pré-remplies</span>
-              </div>
-              <div class="pdp__buybox-feature">
-                <span style="color: var(--c-success); flex-shrink: 0;">✓</span>
-                <span>Mises à jour à vie</span>
-              </div>
-              <div class="pdp__buybox-feature">
-                <span style="color: var(--c-success); flex-shrink: 0;">✓</span>
-                <span>Compatible Excel 365 / Mac / web / LibreOffice</span>
-              </div>
-            </div>
-
-            <div class="pdp__guarantee">
-              <strong>Paiement sécurisé via Lemon Squeezy.</strong><br />
-              <span style="font-size: var(--fs-small);">TVA gérée automatiquement selon ton pays. Facture conforme générée à l'achat.</span>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  {/* ============= FAQ ============= */}
-  <section class="section section--soft">
-    <div class="container">
-      <FAQ items={faqItems} title="Questions fréquentes" />
-    </div>
-  </section>
-
-  {/* ============= CTA FINAL ============= */}
-  <section class="section section--dark">
-    <div class="container text-center">
-      <h2 style="color: #FFFFFF;">Prêt à arrêter de bricoler ?</h2>
-      <p style="max-width: 56ch; margin: 0 auto var(--space-5); color: var(--c-primary-300);">
-        Le Plan d'Action EHS Dynamique, c'est 8 mois de mon expérience EHS condensés en un fichier Excel. À 89 €, il se rentabilise en une après-midi gagnée.
-      </p>
-      <LemonCheckoutButton
-        variantId={variantId}
-        label={`Acheter pour ${product.price} €`}
-        size="lg"
-      />
-    </div>
-  </section>
+  <main>
+    <SalesHero variantId={variantId} price={price} />
+    <Personas />
+    <PainPoints />
+    <Solution />
+    <ProductPreview />
+    <WhatIsIncluded />
+    <Guarantee />
+    <FaqSales />
+    <Testimonials />
+    <FinalCta variantId={variantId} price={price} />
+  </main>
 </Base>

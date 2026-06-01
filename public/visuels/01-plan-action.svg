@@ -1,0 +1,261 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, system-ui, sans-serif">
+  <!-- BG -->
+  <rect width="1280" height="800" fill="#F5F6F8"/>
+
+  <!-- Window chrome -->
+  <rect x="40" y="40" width="1200" height="720" rx="10" fill="#FFFFFF" stroke="#D0D5DA" stroke-width="1"/>
+  <rect x="40" y="40" width="1200" height="36" rx="10" fill="#0F2A47"/>
+  <rect x="40" y="64" width="1200" height="12" fill="#0F2A47"/>
+  <circle cx="62" cy="58" r="6" fill="#FF5F57"/>
+  <circle cx="82" cy="58" r="6" fill="#FEBC2E"/>
+  <circle cx="102" cy="58" r="6" fill="#28C840"/>
+  <text x="640" y="63" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="500" letter-spacing="0.04em">CODEX EHS — PLAN D’ACTION EHS DYNAMIQUE</text>
+
+  <!-- Sheet tabs -->
+  <g transform="translate(40,76)">
+    <rect width="1200" height="34" fill="#1A1F24"/>
+    <g font-size="11" font-weight="600" fill="#FFFFFF">
+      <rect x="12" y="6" width="118" height="22" rx="3" fill="#1E4574"/>
+      <text x="71" y="22" text-anchor="middle">📝 Démarrer ici</text>
+      <rect x="138" y="4" width="130" height="26" rx="3" fill="#FFFFFF"/>
+      <text x="203" y="22" text-anchor="middle" fill="#0F2A47">📋 Plan d’action</text>
+      <text x="297" y="22" text-anchor="middle" opacity="0.7">📊 Dashboard</text>
+      <text x="377" y="22" text-anchor="middle" opacity="0.7">📅 Planning</text>
+      <text x="453" y="22" text-anchor="middle" opacity="0.7">📒 Référentiels</text>
+    </g>
+  </g>
+
+  <!-- Table header -->
+  <g transform="translate(60,138)">
+    <rect width="1160" height="34" fill="#0F2A47"/>
+    <rect y="34" width="1160" height="2" fill="#F26B1F"/>
+    <g font-size="10.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.02em">
+      <text x="14" y="22">ID</text>
+      <text x="84" y="22">SOURCE</text>
+      <text x="220" y="22">SECTEUR</text>
+      <text x="328" y="22">TITRE</text>
+      <text x="638" y="22">PILOTE</text>
+      <text x="778" y="22">ÉCHÉANCE</text>
+      <text x="884" y="22">STATUT EFFECTIF</text>
+      <text x="1014" y="22">CRIT.</text>
+      <text x="1062" y="22">NIVEAU</text>
+      <text x="1126" y="22">%</text>
+    </g>
+  </g>
+
+  <!-- Rows -->
+  <g transform="translate(60,176)" font-size="11" fill="#1A1F24">
+    <!-- Row 1 - EN COURS / Élevée -->
+    <g>
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0001</text>
+      <text x="84" y="20">Accident du travail</text>
+      <text x="220" y="20">Production</text>
+      <text x="328" y="20">Sécuriser machine A12 — carter mobile</text>
+      <text x="638" y="20">Pierre Martin</text>
+      <text x="778" y="20">10-05-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="936" y="20" text-anchor="middle" fill="#8C6310" font-weight="700">EN COURS</text>
+      <text x="1024" y="20" font-weight="700">15</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#FCE5D6"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#D85812" font-weight="700" font-size="9.5" letter-spacing="0.06em">ÉLEVÉE</text>
+      <!-- Data bar -->
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <rect x="1116" y="11" width="24" height="10" fill="#1E4574"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">60%</text>
+    </g>
+
+    <!-- Row 2 - RÉALISÉE / Modérée -->
+    <g transform="translate(0,32)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0002</text>
+      <text x="84" y="20">Quasi-accident</text>
+      <text x="220" y="20">Logistique</text>
+      <text x="328" y="20">Marquage au sol — zone chariots</text>
+      <text x="638" y="20">Émilie Dubois</text>
+      <text x="778" y="20">05-04-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#DCEDE3"/>
+      <text x="936" y="20" text-anchor="middle" fill="#1F6E45" font-weight="700">RÉALISÉE</text>
+      <text x="1024" y="20" font-weight="700">12</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#8C6310" font-weight="700" font-size="9.5" letter-spacing="0.06em">MODÉRÉE</text>
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <rect x="1116" y="11" width="40" height="10" fill="#1E4574"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">100%</text>
+    </g>
+
+    <!-- Row 3 - EN RETARD / Critique -->
+    <g transform="translate(0,64)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0003</text>
+      <text x="84" y="20">Audit interne</text>
+      <text x="220" y="20">Production</text>
+      <text x="328" y="20">Mise à jour analyse environnementale</text>
+      <text x="638" y="20">Julie Durand</text>
+      <text x="778" y="20" fill="#9A2421" font-weight="700" font-style="italic">19-05-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#F8D7D6"/>
+      <text x="936" y="20" text-anchor="middle" fill="#9A2421" font-weight="700">EN RETARD</text>
+      <text x="1024" y="20" font-weight="700">20</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#C8312E"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#FFFFFF" font-weight="700" font-size="9.5" letter-spacing="0.06em">CRITIQUE</text>
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <rect x="1116" y="11" width="16" height="10" fill="#1E4574"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">40%</text>
+    </g>
+
+    <!-- Row 4 - EN COURS / Élevée -->
+    <g transform="translate(0,96)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0004</text>
+      <text x="84" y="20">Inspection terrain</text>
+      <text x="220" y="20">Maintenance</text>
+      <text x="328" y="20">Plan de maintenance préventive ponts</text>
+      <text x="638" y="20">Sophie Bernard</text>
+      <text x="778" y="20">04-06-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="936" y="20" text-anchor="middle" fill="#8C6310" font-weight="700">EN COURS</text>
+      <text x="1024" y="20" font-weight="700">12</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#FCE5D6"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#D85812" font-weight="700" font-size="9.5" letter-spacing="0.06em">ÉLEVÉE</text>
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <rect x="1116" y="11" width="28" height="10" fill="#1E4574"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">70%</text>
+    </g>
+
+    <!-- Row 5 - À PLANIFIER / Modérée -->
+    <g transform="translate(0,128)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0005</text>
+      <text x="84" y="20">Inspection CSSCT</text>
+      <text x="220" y="20">Production</text>
+      <text x="328" y="20">Réorganisation poste découpe</text>
+      <text x="638" y="20">Julie Durand</text>
+      <text x="778" y="20">18-08-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#E6EDF5"/>
+      <text x="936" y="20" text-anchor="middle" fill="#1E4574" font-weight="700">À PLANIFIER</text>
+      <text x="1024" y="20" font-weight="700">9</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#8C6310" font-weight="700" font-size="9.5" letter-spacing="0.06em">MODÉRÉE</text>
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">0%</text>
+    </g>
+
+    <!-- Row 6 - RÉALISÉE / Élevée -->
+    <g transform="translate(0,160)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0006</text>
+      <text x="84" y="20">Accident du travail</text>
+      <text x="220" y="20">Maintenance</text>
+      <text x="328" y="20">Analyse 5 pourquoi chute hauteur</text>
+      <text x="638" y="20">Sophie Bernard</text>
+      <text x="778" y="20">31-03-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#DCEDE3"/>
+      <text x="936" y="20" text-anchor="middle" fill="#1F6E45" font-weight="700">RÉALISÉE</text>
+      <text x="1024" y="20" font-weight="700">10</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#FCE5D6"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#D85812" font-weight="700" font-size="9.5" letter-spacing="0.06em">ÉLEVÉE</text>
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <rect x="1116" y="11" width="40" height="10" fill="#1E4574"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">100%</text>
+    </g>
+
+    <!-- Row 7 - EN COURS / Modérée -->
+    <g transform="translate(0,192)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0007</text>
+      <text x="84" y="20">Remontée terrain</text>
+      <text x="220" y="20">Qualité</text>
+      <text x="328" y="20">Audit fournisseur Q2 — emballages</text>
+      <text x="638" y="20">Marie Laurent</text>
+      <text x="778" y="20">25-05-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="936" y="20" text-anchor="middle" fill="#8C6310" font-weight="700">EN COURS</text>
+      <text x="1024" y="20" font-weight="700">9</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#8C6310" font-weight="700" font-size="9.5" letter-spacing="0.06em">MODÉRÉE</text>
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <rect x="1116" y="11" width="32" height="10" fill="#1E4574"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">80%</text>
+    </g>
+
+    <!-- Row 8 -->
+    <g transform="translate(0,224)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0008</text>
+      <text x="84" y="20">Maladie professionnelle</text>
+      <text x="220" y="20">Production</text>
+      <text x="328" y="20">Plan TMS poste assemblage manuel</text>
+      <text x="638" y="20">Julie Durand</text>
+      <text x="778" y="20" fill="#9A2421" font-weight="700" font-style="italic">25-04-2026</text>
+      <rect x="876" y="6" width="120" height="20" rx="2" fill="#F8D7D6"/>
+      <text x="936" y="20" text-anchor="middle" fill="#9A2421" font-weight="700">EN RETARD</text>
+      <text x="1024" y="20" font-weight="700">16</text>
+      <rect x="1054" y="6" width="52" height="20" rx="2" fill="#C8312E"/>
+      <text x="1080" y="20" text-anchor="middle" fill="#FFFFFF" font-weight="700" font-size="9.5" letter-spacing="0.06em">CRITIQUE</text>
+      <rect x="1116" y="11" width="40" height="10" fill="#E6EDF5"/>
+      <rect x="1116" y="11" width="16" height="10" fill="#1E4574"/>
+      <text x="1158" y="20" text-anchor="end" font-size="9" fill="#4A5057">40%</text>
+    </g>
+  </g>
+
+  <!-- Fade out bottom rows -->
+  <rect x="60" y="430" width="1160" height="80" fill="url(#fadeBottom)"/>
+  <defs>
+    <linearGradient id="fadeBottom" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF" stop-opacity="0"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ANNOTATION 1 — Statuts colorés -->
+  <g transform="translate(900,560)">
+    <rect width="320" height="64" rx="6" fill="#F26B1F"/>
+    <text x="20" y="26" fill="#FFFFFF" font-size="13" font-weight="700" letter-spacing="0.02em">STATUT CALCULÉ AUTOMATIQUEMENT</text>
+    <text x="20" y="48" fill="#FFFFFF" font-size="11.5" opacity="0.95">Échéance dépassée + non clôturée → EN RETARD</text>
+  </g>
+  <!-- Arrow from box to row 8 status -->
+  <path d="M 935 558 Q 935 510 935 460" stroke="#F26B1F" stroke-width="2.5" fill="none"/>
+  <polygon points="935,448 930,460 940,460" fill="#F26B1F"/>
+
+  <!-- ANNOTATION 2 — Niveau criticité -->
+  <g transform="translate(60,560)">
+    <rect width="320" height="64" rx="6" fill="#0F2A47"/>
+    <text x="20" y="26" fill="#FFFFFF" font-size="13" font-weight="700" letter-spacing="0.02em">CRITICITÉ × NIVEAU AUTO-CLASSÉS</text>
+    <text x="20" y="48" fill="#FFFFFF" font-size="11.5" opacity="0.95">Gravité × Probabilité → seuils éditables</text>
+  </g>
+  <path d="M 220 558 Q 600 540 1075 410" stroke="#0F2A47" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
+  <polygon points="1075,410 1063,408 1068,418" fill="#0F2A47"/>
+
+  <!-- ANNOTATION 3 — Bottom badge -->
+  <g transform="translate(60,680)">
+    <rect width="1160" height="56" rx="6" fill="#1E4574"/>
+    <g transform="translate(28,16)">
+      <rect width="3" height="24" fill="#F26B1F"/>
+      <text x="16" y="11" fill="#FFFFFF" font-size="11" font-weight="700" letter-spacing="0.08em">500 LIGNES PRÉ-FORMATÉES</text>
+      <text x="16" y="29" fill="#FFFFFF" font-size="11" opacity="0.8">Saisie en bleu, calcul en gris, formules dynamiques</text>
+    </g>
+    <g transform="translate(360,16)">
+      <rect width="3" height="24" fill="#F26B1F"/>
+      <text x="16" y="11" fill="#FFFFFF" font-size="11" font-weight="700" letter-spacing="0.08em">25 COLONNES MÉTIER</text>
+      <text x="16" y="29" fill="#FFFFFF" font-size="11" opacity="0.8">Source, référentiel, pilote, criticité, coût, preuve</text>
+    </g>
+    <g transform="translate(680,16)">
+      <rect width="3" height="24" fill="#F26B1F"/>
+      <text x="16" y="11" fill="#FFFFFF" font-size="11" font-weight="700" letter-spacing="0.08em">4 591 FORMULES, 0 ERREUR</text>
+      <text x="16" y="29" fill="#FFFFFF" font-size="11" opacity="0.8">INDEX/EQUIV, SOMMEPROD, NB.SI.ENS</text>
+    </g>
+    <g transform="translate(960,16)">
+      <rect width="3" height="24" fill="#F26B1F"/>
+      <text x="16" y="11" fill="#FFFFFF" font-size="11" font-weight="700" letter-spacing="0.08em">FILTRES + GEL ACTIFS</text>
+      <text x="16" y="29" fill="#FFFFFF" font-size="11" opacity="0.8">Ligne 1 + colonne A figées</text>
+    </g>
+  </g>
+</svg>

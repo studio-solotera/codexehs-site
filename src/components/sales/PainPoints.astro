@@ -1,0 +1,175 @@
+---
+// src/components/sales/PainPoints.astro
+// "Le problème" — 4 douleurs concrètes ressenties par le responsable EHS solo.
+---
+
+<section class="pains" aria-labelledby="pains-title">
+  <div class="pains__inner">
+    <header class="section-head">
+      <span class="eyebrow eyebrow--danger">Le problème</span>
+      <h2 id="pains-title">Tu reconnais au moins un de ces vendredis soir.</h2>
+      <p class="section-sub">
+        Quatre symptômes universels du responsable EHS solo. Si tu en
+        coches trois, ce fichier va te soulager dès la semaine
+        prochaine.
+      </p>
+    </header>
+
+    <div class="pains__grid">
+      <article class="pain">
+        <span class="pain__num">01</span>
+        <h3>Trois Excel différents pour suivre les mêmes actions</h3>
+        <p>
+          Le tableau du DUERP. Le suivi audit interne. Le plan d’action
+          envoyé au groupe. Trois sources de vérité, trois statuts
+          contradictoires, et personne ne sait laquelle est à jour.
+        </p>
+      </article>
+
+      <article class="pain">
+        <span class="pain__num">02</span>
+        <h3>Le DG demande « où on en est ? »</h3>
+        <p>
+          Tu mets deux heures à recoller le tout, tu rends un PowerPoint
+          que tu jettes ensuite, et tu sais déjà qu’il va te le
+          redemander dans 15 jours. Tu n’as pas de dashboard, tu as
+          des slides jetables.
+        </p>
+      </article>
+
+      <article class="pain">
+        <span class="pain__num">03</span>
+        <h3>L’audit ISO arrive et ton suivi a l’air bricolé</h3>
+        <p>
+          Le BV ou DEKRA passe dans trois semaines. Ton plan d’actions
+          n’a pas de criticité chiffrée, pas d’historique, pas de
+          preuve attachée. Tu sais que ça va sortir en remarque. Tu
+          sais que tu vas y passer le week-end.
+        </p>
+      </article>
+
+      <article class="pain">
+        <span class="pain__num">04</span>
+        <h3>Tu retravailles ton suivi à la main chaque vendredi</h3>
+        <p>
+          Recopier les statuts, recalculer la criticité, refaire les
+          camemberts pour la CSSCT. Une heure trente perdue chaque
+          semaine sur de la mécanique. 75 heures par an. Une semaine
+          et demie de boulot évaporée.
+        </p>
+      </article>
+    </div>
+
+    <p class="pains__verdict">
+      Le problème n’est pas que tu travailles mal. Le problème est que
+      <strong>ton outil est un fichier mort dans un monde dynamique</strong>.
+    </p>
+  </div>
+</section>
+
+<style>
+  .pains {
+    padding: clamp(64px, 8vw, 120px) 0;
+    background: var(--c-primary-900);
+    color: #FFFFFF;
+    position: relative;
+    overflow: hidden;
+  }
+  .pains::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 100% 0%, rgba(242,107,31,0.10), transparent 50%),
+      radial-gradient(ellipse at 0% 100%, rgba(200,49,46,0.08), transparent 50%);
+    pointer-events: none;
+  }
+  .pains__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+    position: relative;
+  }
+
+  .section-head {
+    text-align: center;
+    margin: 0 auto 56px;
+    max-width: 720px;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: #FFFFFF;
+    margin: 12px 0 16px;
+  }
+  .section-sub {
+    font-size: 17px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-action);
+  }
+  .eyebrow--danger { color: #FF8A5C; }
+
+  .pains__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .pain {
+    background: var(--c-primary-900);
+    padding: 32px 28px;
+    position: relative;
+  }
+  .pain__num {
+    display: block;
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--c-action);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+  }
+  .pain h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #FFFFFF;
+    margin: 0 0 12px;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+  }
+  .pain p {
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.72);
+    margin: 0;
+  }
+
+  .pains__verdict {
+    text-align: center;
+    margin: 48px auto 0;
+    max-width: 800px;
+    font-size: clamp(18px, 2vw, 22px);
+    line-height: 1.5;
+    color: rgba(255,255,255,0.85);
+  }
+  .pains__verdict strong {
+    color: #FFFFFF;
+    font-weight: 700;
+    border-bottom: 3px solid var(--c-action);
+    padding-bottom: 2px;
+  }
+</style>

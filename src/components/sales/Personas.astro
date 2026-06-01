@@ -1,0 +1,209 @@
+---
+// src/components/sales/Personas.astro
+// "Pour qui c’est" — 3 personas en encadrés.
+---
+
+<section class="personas" aria-labelledby="personas-title">
+  <div class="personas__inner">
+    <header class="section-head">
+      <span class="eyebrow">Pour qui c’est</span>
+      <h2 id="personas-title">Conçu pour les EHS qui portent le sujet seuls.</h2>
+      <p class="section-sub">
+        Si tu te reconnais dans un de ces 3 profils, ce fichier va te
+        faire gagner entre 4 et 6 heures par semaine dès la première
+        utilisation.
+      </p>
+    </header>
+
+    <div class="personas__grid">
+      <article class="persona-card">
+        <div class="persona-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28">
+            <path fill="currentColor" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+          </svg>
+        </div>
+        <h3>Le Responsable EHS solo</h3>
+        <p class="persona-card__label">PME industrielle 80-300 salariés</p>
+        <p class="persona-card__pain">
+          Tu portes l’EHS de toute l’usine. Tu jongles entre DUERP,
+          plan d’action, audit ISO et CSSCT. Personne pour
+          déléguer. Tu cherches un outil qui tient debout sans usine
+          à gaz.
+        </p>
+        <ul class="persona-card__signs">
+          <li>Tu pilotes 50 à 200 actions ouvertes en parallèle</li>
+          <li>Tu prépares la CSSCT seul tous les 2 mois</li>
+          <li>L’audit ISO arrive et ton suivi a l’air bricolé</li>
+        </ul>
+      </article>
+
+      <article class="persona-card persona-card--featured">
+        <div class="persona-card__badge">Le plus représenté</div>
+        <div class="persona-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28">
+            <path fill="currentColor" d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-2 .89-2 2v11c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z"/>
+          </svg>
+        </div>
+        <h3>Le Consultant QHSE indépendant</h3>
+        <p class="persona-card__label">Débutant ou en montée en charge</p>
+        <p class="persona-card__pain">
+          Tu démarres en clientèle. Tu vends de l’expertise, pas du
+          paramétrage Excel à 23 h. Tu veux un outil pro à mettre dans
+          les mains de tes clients dès le kickoff sans rougir.
+        </p>
+        <ul class="persona-card__signs">
+          <li>Tu factures 600-900 €/jour, ton temps vaut cher</li>
+          <li>Tu manages 3 à 8 clients en parallèle</li>
+          <li>Tu cherches un livrable signé qui te crédibilise</li>
+        </ul>
+      </article>
+
+      <article class="persona-card">
+        <div class="persona-card__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" width="28" height="28">
+            <path fill="currentColor" d="M12 2L1 7l11 5 9-4.09V17h2V7L12 2zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/>
+          </svg>
+        </div>
+        <h3>L’EHS Manager fraîchement nommé</h3>
+        <p class="persona-card__label">90 premiers jours en poste</p>
+        <p class="persona-card__pain">
+          Tu hérites d’un classeur partagé bourré de formules cassées.
+          Tu dois rendre une revue de direction dans 4 semaines.
+          Tu n’as ni le temps ni l’envie de tout refaire from scratch.
+        </p>
+        <ul class="persona-card__signs">
+          <li>Tu hérites d’un suivi EHS dégradé</li>
+          <li>Ta première CODIR EHS arrive bientôt</li>
+          <li>Tu veux poser tes marques rapidement</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .personas {
+    padding: clamp(64px, 8vw, 120px) 0;
+    background: var(--c-bg);
+  }
+  .personas__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  .section-head {
+    text-align: center;
+    margin: 0 auto 48px;
+    max-width: 720px;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--c-primary-900);
+    margin: 12px 0 16px;
+  }
+  .section-sub {
+    font-size: 17px;
+    color: var(--c-ink-600);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-action);
+  }
+
+  .personas__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .persona-card {
+    background: var(--c-bg);
+    border: 1px solid var(--c-line);
+    border-radius: 12px;
+    padding: 28px;
+    position: relative;
+    transition: transform 200ms ease, box-shadow 200ms ease;
+  }
+  .persona-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px -16px rgba(15,42,71,0.18);
+  }
+  .persona-card--featured {
+    background: linear-gradient(180deg, #FFFFFF 0%, #F5F6F8 100%);
+    border-color: var(--c-action);
+    border-width: 1.5px;
+  }
+  .persona-card__badge {
+    position: absolute;
+    top: -10px; left: 24px;
+    background: var(--c-action);
+    color: #FFF;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 3px;
+  }
+  .persona-card__icon {
+    width: 48px; height: 48px;
+    display: grid; place-items: center;
+    background: var(--c-primary-100);
+    color: var(--c-primary-700);
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+  .persona-card h3 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--c-primary-900);
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .persona-card__label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--c-ink-300);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+  }
+  .persona-card__pain {
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--c-ink-600);
+    margin: 0 0 16px;
+  }
+  .persona-card__signs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px dashed var(--c-line);
+    padding-top: 16px;
+  }
+  .persona-card__signs li {
+    position: relative;
+    padding-left: 18px;
+    margin-bottom: 6px;
+    font-size: 13px;
+    color: var(--c-ink-900);
+    line-height: 1.45;
+  }
+  .persona-card__signs li::before {
+    content: '✓';
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--c-success);
+    font-weight: 800;
+  }
+</style>

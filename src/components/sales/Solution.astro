@@ -1,0 +1,245 @@
+---
+// src/components/sales/Solution.astro
+// "La solution" — 5 bénéfices, chacun accompagné d’un visuel,
+// disposition en zigzag pour rythme visuel.
+
+const benefits = [
+  {
+    num: "01",
+    title: "Une seule source de vérité pour 500 actions",
+    pitch:
+      "Plus de tableau A pour le DUERP, tableau B pour l’audit, " +
+      "tableau C pour le groupe. Une table Excel structurée, 25 " +
+      "colonnes métier, statut effectif calculé. Tu saisis une fois, " +
+      "tout suit.",
+    bullets: [
+      "Statut effectif calculé (RÉALISÉE / EN COURS / EN RETARD / À PLANIFIER)",
+      "Criticité Gravité × Probabilité et niveau classés automatiquement",
+      "Saisie en bleu, calcul en gris — l'œil sait quoi modifier",
+    ],
+    image: "/visuels/01-plan-action.svg",
+    alt: "Vue Plan d’action avec 8 lignes pré-remplies, statuts colorés et niveau criticité classé automatiquement",
+  },
+  {
+    num: "02",
+    title: "Le dashboard se met à jour tout seul",
+    pitch:
+      "Tu saisis une action, le dashboard intègre. Tu clôtures, le " +
+      "KPI bouge. 6 cartes KPI, donut de répartition par statut, " +
+      "courbe création vs clôture sur 12 mois glissants. Aucune " +
+      "table pivot à reconstruire.",
+    bullets: [
+      "6 KPI temps réel : ouvertes · % réalisées · en retard · criticité moy. · délai · top secteur",
+      "Filtres par colonne : secteur · pilote · type · référentiel · niveau criticité",
+      "Export PDF paysage A3 en 1 clic — prêt pour la revue de direction",
+    ],
+    image: "/visuels/02-dashboard-kpi.svg",
+    alt: "Dashboard EHS avec 6 cartes KPI, donut de répartition, et graphique mensuel sur 12 mois",
+  },
+  {
+    num: "03",
+    title: "Le planning sort prêt pour la CSSCT",
+    pitch:
+      "Vue Gantt simplifiée sur 12 mois glissants. Le mois courant " +
+      "est surligné en orange. Les actions sont triées par criticité " +
+      "décroissante. Tu sais immédiatement où il faut appuyer ce " +
+      "mois-ci.",
+    bullets: [
+      "12 mois glissants, top 100 actions ouvertes",
+      "Tri automatique par criticité décroissante (INDEX/EQUIV + SOMMEPROD)",
+      "Mois courant en bordure orange — vision d’urgence immédiate",
+    ],
+    image: "/visuels/03-planning-12mois.svg",
+    alt: "Planning 12 mois glissants avec actions triées par criticité et mois courant surligné en orange",
+  },
+  {
+    num: "04",
+    title: "Les indicateurs sont audit-ready",
+    pitch:
+      "Matrice criticité 5×5 colorée, seuils éditables, vocabulaire " +
+      "à jour (CSSCT, DREAL, CARSAT). Le fichier parle la langue de " +
+      "l’auditeur BV, DEKRA ou Veritas. Tu n’as pas à expliquer ta " +
+      "méthode — elle est dans le fichier.",
+    bullets: [
+      "Matrice Gravité × Probabilité 5×5 avec color scale automatique",
+      "Référentiels intégrés : ISO 45001 · ISO 14001 · Code du travail",
+      "Seuils de criticité éditables (Faible ≤4 · Modérée ≤9 · Élevée ≤15 · Critique >15)",
+    ],
+    image: "/visuels/04-heatmap-criticite.svg",
+    alt: "Matrice criticité Gravité × Probabilité 5×5 colorée du vert au rouge, avec compteurs d’actions par case",
+  },
+  {
+    num: "05",
+    title: "Multi-pays francophone, 1 cellule à changer",
+    pitch:
+      "Tu opères en France, en Belgique, en Suisse, au Québec, au " +
+      "Maroc, en Tunisie, en Algérie ou au Luxembourg ? Tu changes " +
+      "le code pays dans la cellule de config. Vocabulaire instance, " +
+      "devise, référentiel légal et format date s’adaptent " +
+      "automatiquement.",
+    bullets: [
+      "8 codes pays : FR · BE · CH · LU · QC · MA · TN · DZ",
+      "Vocabulaire instance auto : CSSCT (FR) · CPPT (BE) · CSST (QC)…",
+      "Devise + référentiel légal + format date pilotés par cellule pays",
+    ],
+    image: "/visuels/06-adaptation-pays.svg",
+    alt: "Configuration pays avec bascule FR → CH montrant changement automatique de la devise, instance, référentiel légal et format date",
+  },
+];
+---
+
+<section class="solution" id="solution" aria-labelledby="solution-title">
+  <div class="solution__inner">
+    <header class="section-head">
+      <span class="eyebrow">La solution</span>
+      <h2 id="solution-title">
+        Cinq décisions de conception qui changent ta semaine de travail.
+      </h2>
+      <p class="section-sub">
+        Pas un template Pinterest. Un outil pensé pour une vraie usine
+        par quelqu’un qui en pilote une depuis 8 ans.
+      </p>
+    </header>
+
+    <div class="benefits">
+      {benefits.map((b, i) => (
+        <article class={`benefit ${i % 2 === 1 ? 'benefit--reverse' : ''}`}>
+          <div class="benefit__copy">
+            <span class="benefit__num">{b.num}</span>
+            <h3>{b.title}</h3>
+            <p class="benefit__pitch">{b.pitch}</p>
+            <ul class="benefit__bullets">
+              {b.bullets.map((bullet) => <li>{bullet}</li>)}
+            </ul>
+          </div>
+          <figure class="benefit__visual">
+            <img src={b.image} alt={b.alt} loading="lazy" decoding="async" />
+          </figure>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .solution {
+    padding: clamp(64px, 8vw, 120px) 0;
+    background: var(--c-bg-soft);
+  }
+  .solution__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 48px);
+  }
+
+  .section-head {
+    text-align: center;
+    margin: 0 auto 64px;
+    max-width: 740px;
+  }
+  .section-head h2 {
+    font-size: clamp(28px, 3.6vw, 40px);
+    font-weight: 800;
+    line-height: 1.12;
+    letter-spacing: -0.02em;
+    color: var(--c-primary-900);
+    margin: 12px 0 16px;
+  }
+  .section-sub {
+    font-size: 17px;
+    color: var(--c-ink-600);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .eyebrow {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--c-action);
+  }
+
+  .benefits {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(64px, 8vw, 112px);
+  }
+  .benefit {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    gap: clamp(28px, 4vw, 64px);
+    align-items: center;
+  }
+  .benefit--reverse {
+    direction: rtl;
+  }
+  .benefit--reverse > * { direction: ltr; }
+  @media (max-width: 880px) {
+    .benefit, .benefit--reverse {
+      grid-template-columns: 1fr;
+      direction: ltr;
+    }
+  }
+
+  .benefit__num {
+    font-family: 'JetBrains Mono Variable', 'JetBrains Mono', monospace;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--c-action);
+    letter-spacing: 0.04em;
+  }
+  .benefit h3 {
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--c-primary-900);
+    margin: 8px 0 16px;
+  }
+  .benefit__pitch {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--c-ink-600);
+    margin: 0 0 20px;
+  }
+  .benefit__bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  .benefit__bullets li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 10px;
+    font-size: 14.5px;
+    line-height: 1.5;
+    color: var(--c-ink-900);
+  }
+  .benefit__bullets li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 6px;
+    width: 16px; height: 16px;
+    background: var(--c-success);
+    mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center / contain;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='black' d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E") no-repeat center / contain;
+  }
+
+  .benefit__visual {
+    margin: 0;
+    background: var(--c-bg);
+    border: 1px solid var(--c-line);
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow:
+      0 1px 2px rgba(15,42,71,0.04),
+      0 16px 40px -16px rgba(15,42,71,0.12);
+  }
+  .benefit__visual img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+</style>

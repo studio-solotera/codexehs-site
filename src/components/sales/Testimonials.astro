@@ -1,0 +1,210 @@
+---
+// src/components/sales/Testimonials.astro
+// 3 emplacements témoignages réservés aux 3 premiers acheteurs.
+// Présentés comme une opportunité, pas comme un vide.
+
+const slots = [
+  { role: "Responsable EHS", context: "Industrie agroalimentaire" },
+  { role: "Consultant QHSE indépendant", context: "Cabinet solo" },
+  { role: "EHS Manager", context: "Site industriel — 120 personnes" },
+];
+---
+
+<section class="testimonials" aria-labelledby="testimonials-title">
+  <div class="testimonials__inner">
+    <header class="testimonials__header">
+      <span class="eyebrow">
+        <span class="dot"></span> Témoignages
+      </span>
+      <h2 id="testimonials-title" class="testimonials__title">
+        Tu peux être le premier à laisser un avis
+      </h2>
+      <p class="testimonials__lead">
+        Le produit vient d’être publié. Les <strong>trois premiers
+        acheteurs qui acceptent de partager leur retour</strong> reçoivent
+        un crédit de 30 € sur la v2 du produit, et leur logo / fonction
+        affichés ici en priorité.
+      </p>
+    </header>
+
+    <div class="testimonials__grid">
+      {slots.map((s, i) => (
+        <article class="slot" aria-label={`Emplacement témoignage ${i + 1}`}>
+          <div class="slot__quote-mark" aria-hidden="true">"</div>
+          <div class="slot__placeholder">
+            <p class="slot__pending">Témoignage à venir</p>
+            <p class="slot__reserved">
+              Réservé au {i + 1}<sup>{i === 0 ? "er" : "e"}</sup> acheteur
+            </p>
+          </div>
+          <footer class="slot__footer">
+            <div class="slot__avatar" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none">
+                <circle cx="20" cy="20" r="20" fill="var(--c-bg-soft)" />
+                <circle cx="20" cy="16" r="6" fill="var(--c-line)" />
+                <path
+                  d="M8 36c0-6 5-10 12-10s12 4 12 10"
+                  fill="var(--c-line)"
+                />
+              </svg>
+            </div>
+            <div>
+              <div class="slot__role">{s.role}</div>
+              <div class="slot__context">{s.context}</div>
+            </div>
+          </footer>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    padding: clamp(48px, 7vw, 88px) 0;
+    background: var(--c-bg-soft);
+  }
+
+  .testimonials__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 40px);
+  }
+
+  .testimonials__header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto clamp(40px, 5vw, 56px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-primary-700);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-action);
+  }
+
+  .testimonials__title {
+    font-size: clamp(24px, 3.4vw, 36px);
+    font-weight: 700;
+    color: var(--c-primary-900);
+    margin: 0 0 14px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .testimonials__lead {
+    font-size: 15.5px;
+    color: var(--c-ink-600);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .testimonials__lead strong {
+    color: var(--c-primary-900);
+    font-weight: 600;
+  }
+
+  .testimonials__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .slot {
+    background: #fff;
+    border: 1px dashed var(--c-line);
+    border-radius: 12px;
+    padding: 28px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    position: relative;
+    min-height: 200px;
+  }
+
+  .slot__quote-mark {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 48px;
+    color: var(--c-line);
+    line-height: 1;
+    opacity: 0.5;
+  }
+
+  .slot__placeholder {
+    flex: 1;
+  }
+
+  .slot__pending {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--c-ink-600);
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .slot__reserved {
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 12.5px;
+    color: var(--c-action);
+    margin: 0;
+    letter-spacing: 0.03em;
+  }
+
+  .slot__footer {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 16px;
+    border-top: 1px solid var(--c-line);
+  }
+
+  .slot__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  .slot__avatar svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+
+  .slot__role {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--c-primary-900);
+    line-height: 1.3;
+  }
+
+  .slot__context {
+    font-size: 12.5px;
+    color: var(--c-ink-600);
+    line-height: 1.3;
+  }
+
+  @media (max-width: 820px) {
+    .testimonials__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

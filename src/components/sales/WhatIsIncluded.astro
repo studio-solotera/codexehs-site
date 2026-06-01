@@ -1,0 +1,384 @@
+---
+// src/components/sales/WhatIsIncluded.astro
+// Check-list de tout ce qui est livré + équivalent temps gagné.
+
+const included = [
+  {
+    label: "Fichier Excel maître XLSX",
+    detail:
+      "500 lignes pré-formatées, 25 colonnes structurées, 4591 formules, " +
+      "6 onglets (Démarrer / Plan d’action / Dashboard / Planning / " +
+      "Référentiels / Pays).",
+  },
+  {
+    label: "Dashboard 6 KPI + 6 graphiques + matrice criticité",
+    detail:
+      "Actions ouvertes, taux d’avancement, retards, criticité moyenne, " +
+      "âge moyen, secteur le plus exposé. Sparklines, donut, line chart, " +
+      "heatmap 5×5.",
+  },
+  {
+    label: "Planning visuel 12 mois glissants",
+    detail:
+      "Vue type Gantt triée par criticité, mois courant mis en avant, " +
+      "réimprimable en A3 pour affichage atelier.",
+  },
+  {
+    label: "Référentiels éditables",
+    detail:
+      "Services, secteurs, types d’action, statuts, criticité — tout " +
+      "modifiable sans casser les formules.",
+  },
+  {
+    label: "Multi-pays francophone (8 pays)",
+    detail:
+      "France, Belgique, Suisse, Luxembourg, Québec, Maroc, Tunisie, " +
+      "Algérie. Vocabulaire EHS local, devises, formats de date.",
+  },
+  {
+    label: "Guide d’utilisation PDF (10 pages)",
+    detail:
+      "Prise en main complète, FAQ technique, exemples de cas concrets " +
+      "EHS terrain. Pour démarrer en 20 minutes.",
+  },
+  {
+    label: "Fichier démo pré-rempli (30 actions)",
+    detail:
+      "Données réalistes (5 services, criticité variée, retards) pour " +
+      "tester le dashboard avant de saisir tes vraies actions.",
+  },
+  {
+    label: "Mises à jour mineures pendant 12 mois",
+    detail:
+      "Corrections, ajustements, nouveaux modèles graphiques. " +
+      "Réception par email automatique.",
+  },
+  {
+    label: "Support email 30 jours",
+    detail:
+      "Une question technique, un bug, une formule qui coince ? " +
+      "Réponse sous 48 h ouvrées.",
+  },
+];
+
+const timeGains = [
+  {
+    task: "Consolidation hebdo des actions",
+    before: "2 h / semaine",
+    after: "Auto-calculé",
+  },
+  {
+    task: "Reporting mensuel pour la direction",
+    before: "1 jour / mois",
+    after: "Export en 5 min",
+  },
+  {
+    task: "Préparation CSSCT trimestrielle",
+    before: "1 journée",
+    after: "Dashboard prêt",
+  },
+  {
+    task: "Préparation audit ISO 45001 / 14001",
+    before: "1 semaine",
+    after: "48 h chrono",
+  },
+];
+---
+
+<section class="included" aria-labelledby="included-title">
+  <div class="included__inner">
+    <header class="included__header">
+      <span class="eyebrow">
+        <span class="dot"></span> Ce qui est inclus
+      </span>
+      <h2 id="included-title" class="included__title">
+        Tout pour démarrer lundi matin
+      </h2>
+      <p class="included__lead">
+        Pas d’options cachées, pas de tier supérieur. Le pack complet
+        livré en une fois, dans ton inbox, immédiatement après paiement.
+      </p>
+    </header>
+
+    <div class="included__grid">
+      <ul class="checklist">
+        {included.map((item) => (
+          <li class="checklist__item">
+            <svg
+              class="checklist__icon"
+              viewBox="0 0 24 24"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle cx="12" cy="12" r="11" fill="var(--c-success)" />
+              <path
+                d="M7 12.5l3.5 3.5L17 9"
+                stroke="#fff"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <div>
+              <h3 class="checklist__label">{item.label}</h3>
+              <p class="checklist__detail">{item.detail}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+
+      <aside class="gains" aria-labelledby="gains-title">
+        <h3 id="gains-title" class="gains__title">
+          Équivalent temps gagné
+        </h3>
+        <p class="gains__lead">
+          Pour un Responsable EHS solo qui gère 80 à 300 personnes :
+        </p>
+        <table class="gains__table">
+          <thead>
+            <tr>
+              <th>Tâche</th>
+              <th>Avant</th>
+              <th>Après</th>
+            </tr>
+          </thead>
+          <tbody>
+            {timeGains.map((row) => (
+              <tr>
+                <td>{row.task}</td>
+                <td class="gains__before">{row.before}</td>
+                <td class="gains__after">{row.after}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+
+        <div class="gains__total">
+          <span class="gains__total-num">200 h+</span>
+          <span class="gains__total-label">
+            économisées par an, soit 4 à 6 h chaque semaine.
+          </span>
+        </div>
+
+        <p class="gains__footer">
+          Au prix moyen d’un Responsable EHS chargé (45 €/h), tu
+          rentabilises le fichier en moins d’une demi-journée.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .included {
+    padding: clamp(64px, 9vw, 112px) 0;
+    background: #fff;
+  }
+
+  .included__inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 40px);
+  }
+
+  .included__header {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto clamp(48px, 6vw, 72px);
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-primary-700);
+    margin-bottom: 16px;
+  }
+
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-action);
+  }
+
+  .included__title {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 700;
+    line-height: 1.15;
+    color: var(--c-primary-900);
+    margin: 0 0 16px;
+    letter-spacing: -0.02em;
+  }
+
+  .included__lead {
+    font-size: 17px;
+    color: var(--c-ink-600);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .included__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: clamp(32px, 5vw, 56px);
+    align-items: start;
+  }
+
+  .checklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .checklist__item {
+    display: grid;
+    grid-template-columns: 24px 1fr;
+    gap: 14px;
+    align-items: start;
+  }
+
+  .checklist__icon {
+    width: 24px;
+    height: 24px;
+    flex: 0 0 24px;
+    margin-top: 2px;
+  }
+
+  .checklist__label {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--c-primary-900);
+    margin: 0 0 4px;
+    line-height: 1.35;
+  }
+
+  .checklist__detail {
+    font-size: 14.5px;
+    color: var(--c-ink-600);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .gains {
+    background: var(--c-primary-900);
+    border-radius: 14px;
+    padding: clamp(24px, 3vw, 32px);
+    color: #fff;
+    position: sticky;
+    top: 24px;
+  }
+
+  .gains__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #fff;
+    letter-spacing: -0.01em;
+  }
+
+  .gains__lead {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+
+  .gains__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 13.5px;
+  }
+
+  .gains__table th {
+    text-align: left;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 10.5px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 0 0 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .gains__table td {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    vertical-align: top;
+  }
+
+  .gains__table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .gains__table td:first-child {
+    color: #fff;
+    padding-right: 8px;
+  }
+
+  .gains__before {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: line-through;
+    text-decoration-color: rgba(200, 49, 46, 0.6);
+    text-decoration-thickness: 1.5px;
+    font-size: 13px;
+  }
+
+  .gains__after {
+    color: var(--c-action);
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .gains__total {
+    background: rgba(242, 107, 31, 0.12);
+    border: 1px solid rgba(242, 107, 31, 0.3);
+    border-radius: 10px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 16px;
+  }
+
+  .gains__total-num {
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--c-action);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  .gains__total-label {
+    font-size: 13.5px;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.4;
+  }
+
+  .gains__footer {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.65);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  @media (max-width: 820px) {
+    .included__grid {
+      grid-template-columns: 1fr;
+    }
+    .gains {
+      position: static;
+    }
+  }
+</style>

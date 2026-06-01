@@ -1,0 +1,238 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, system-ui, sans-serif">
+  <rect width="1280" height="800" fill="#F5F6F8"/>
+
+  <rect x="40" y="40" width="1200" height="720" rx="10" fill="#FFFFFF" stroke="#D0D5DA" stroke-width="1"/>
+  <rect x="40" y="40" width="1200" height="36" rx="10" fill="#0F2A47"/>
+  <rect x="40" y="64" width="1200" height="12" fill="#0F2A47"/>
+  <circle cx="62" cy="58" r="6" fill="#FF5F57"/>
+  <circle cx="82" cy="58" r="6" fill="#FEBC2E"/>
+  <circle cx="102" cy="58" r="6" fill="#28C840"/>
+  <text x="640" y="63" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="500" letter-spacing="0.04em">CODEX EHS — PLANNING</text>
+
+  <g transform="translate(40,76)">
+    <rect width="1200" height="34" fill="#1A1F24"/>
+    <g font-size="11" font-weight="600" fill="#FFFFFF">
+      <text x="71" y="22" text-anchor="middle" opacity="0.7">📝 Démarrer ici</text>
+      <text x="203" y="22" text-anchor="middle" opacity="0.7">📋 Plan d’action</text>
+      <text x="297" y="22" text-anchor="middle" opacity="0.7">📊 Dashboard</text>
+      <rect x="334" y="4" width="120" height="26" rx="3" fill="#1E4574"/>
+      <text x="394" y="22" text-anchor="middle">📅 Planning</text>
+      <text x="497" y="22" text-anchor="middle" opacity="0.7">📒 Référentiels</text>
+    </g>
+  </g>
+
+  <!-- Title -->
+  <g transform="translate(60,134)">
+    <text x="0" y="22" font-size="20" font-weight="800" fill="#0F2A47" letter-spacing="-0.02em">Planning des échéances — 12 mois glissants</text>
+    <text x="0" y="42" font-size="11" fill="#4A5057">Mois de référence : mai 2026 · Année active : 2026 · Top 12 actions ouvertes par criticité</text>
+  </g>
+
+  <!-- Table -->
+  <g transform="translate(60,192)">
+    <!-- Header -->
+    <rect width="1160" height="34" fill="#0F2A47"/>
+    <rect y="34" width="1160" height="2" fill="#F26B1F"/>
+    <g font-size="10.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.04em">
+      <text x="14" y="22">ID</text>
+      <text x="80" y="22">TITRE</text>
+      <text x="304" y="22">PILOTE</text>
+      <text x="416" y="22">SECTEUR</text>
+      <text x="494" y="22">CRITICITÉ</text>
+    </g>
+    <!-- Month columns header -->
+    <g font-size="9.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.04em" text-anchor="middle">
+      <text x="616" y="22">MAI</text>
+      <text x="666" y="22">JUIN</text>
+      <text x="716" y="22">JUIL</text>
+      <text x="766" y="22">AOÛT</text>
+      <text x="816" y="22">SEPT</text>
+      <text x="866" y="22">OCT</text>
+      <text x="916" y="22">NOV</text>
+      <text x="966" y="22">DÉC</text>
+      <text x="1016" y="22">JANV</text>
+      <text x="1066" y="22">FÉVR</text>
+      <text x="1116" y="22">MARS</text>
+      <text x="1166" y="22" font-size="0">AVR</text>
+    </g>
+    <!-- Current month highlight -->
+    <rect x="592" y="36" width="50" height="386" fill="#FFF6EE" opacity="0.6"/>
+    <line x1="592" y1="36" x2="592" y2="422" stroke="#F26B1F" stroke-width="2"/>
+    <line x1="642" y1="36" x2="642" y2="422" stroke="#F26B1F" stroke-width="2"/>
+  </g>
+
+  <!-- Rows : 12 actions -->
+  <g transform="translate(60,228)" font-size="11" fill="#1A1F24">
+    <!-- Helper: define row template -->
+    <!-- Row 1 - Critique (mai) -->
+    <g>
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FCEFEE" opacity="0.4"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0008</text>
+      <text x="80" y="20">Plan TMS poste assemblage</text>
+      <text x="304" y="20">Julie Durand</text>
+      <text x="416" y="20">Production</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#C8312E"/>
+      <text x="516" y="20" text-anchor="middle" fill="#FFFFFF" font-weight="700" font-size="9.5" letter-spacing="0.06em">CRITIQUE</text>
+      <text x="616" y="22" text-anchor="middle" font-size="18" fill="#C8312E">●</text>
+    </g>
+    <!-- Row 2 - Critique (juin) -->
+    <g transform="translate(0,32)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FCEFEE" opacity="0.4"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0003</text>
+      <text x="80" y="20">Mise à jour analyse environnement</text>
+      <text x="304" y="20">Julie Durand</text>
+      <text x="416" y="20">Production</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#C8312E"/>
+      <text x="516" y="20" text-anchor="middle" fill="#FFFFFF" font-weight="700" font-size="9.5" letter-spacing="0.06em">CRITIQUE</text>
+      <text x="666" y="22" text-anchor="middle" font-size="18" fill="#C8312E">●</text>
+    </g>
+    <!-- Row 3 - Élevée (mai) -->
+    <g transform="translate(0,64)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FFF4EC" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0001</text>
+      <text x="80" y="20">Sécuriser machine A12</text>
+      <text x="304" y="20">Pierre Martin</text>
+      <text x="416" y="20">Production</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#FCE5D6"/>
+      <text x="516" y="20" text-anchor="middle" fill="#D85812" font-weight="700" font-size="9.5" letter-spacing="0.06em">ÉLEVÉE</text>
+      <text x="616" y="22" text-anchor="middle" font-size="18" fill="#D85812">●</text>
+    </g>
+    <!-- Row 4 - Élevée (juin) -->
+    <g transform="translate(0,96)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FFF4EC" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0004</text>
+      <text x="80" y="20">Plan de maintenance préventive</text>
+      <text x="304" y="20">Sophie Bernard</text>
+      <text x="416" y="20">Maintenance</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#FCE5D6"/>
+      <text x="516" y="20" text-anchor="middle" fill="#D85812" font-weight="700" font-size="9.5" letter-spacing="0.06em">ÉLEVÉE</text>
+      <text x="666" y="22" text-anchor="middle" font-size="18" fill="#D85812">●</text>
+    </g>
+    <!-- Row 5 - Élevée (juil) -->
+    <g transform="translate(0,128)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FFF4EC" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0011</text>
+      <text x="80" y="20">Bilan carbone scope 1+2</text>
+      <text x="304" y="20">Thomas Roux</text>
+      <text x="416" y="20">Direction</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#FCE5D6"/>
+      <text x="516" y="20" text-anchor="middle" fill="#D85812" font-weight="700" font-size="9.5" letter-spacing="0.06em">ÉLEVÉE</text>
+      <text x="716" y="22" text-anchor="middle" font-size="18" fill="#D85812">●</text>
+    </g>
+    <!-- Row 6 - Modérée (mai) -->
+    <g transform="translate(0,160)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FFFBE8" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0007</text>
+      <text x="80" y="20">Audit fournisseur Q2</text>
+      <text x="304" y="20">Marie Laurent</text>
+      <text x="416" y="20">Qualité</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="516" y="20" text-anchor="middle" fill="#8C6310" font-weight="700" font-size="9.5" letter-spacing="0.06em">MODÉRÉE</text>
+      <text x="616" y="22" text-anchor="middle" font-size="18" fill="#8C6310">●</text>
+    </g>
+    <!-- Row 7 - Modérée (mai) -->
+    <g transform="translate(0,192)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FFFBE8" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0013</text>
+      <text x="80" y="20">Vérification mensuelle EPI</text>
+      <text x="304" y="20">Émilie Dubois</text>
+      <text x="416" y="20">Logistique</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="516" y="20" text-anchor="middle" fill="#8C6310" font-weight="700" font-size="9.5" letter-spacing="0.06em">MODÉRÉE</text>
+      <text x="616" y="22" text-anchor="middle" font-size="18" fill="#8C6310">●</text>
+    </g>
+    <!-- Row 8 - Modérée (juin) -->
+    <g transform="translate(0,224)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FFFBE8" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0016</text>
+      <text x="80" y="20">Sécuriser zone rétention</text>
+      <text x="304" y="20">Sophie Bernard</text>
+      <text x="416" y="20">Maintenance</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="516" y="20" text-anchor="middle" fill="#8C6310" font-weight="700" font-size="9.5" letter-spacing="0.06em">MODÉRÉE</text>
+      <text x="666" y="22" text-anchor="middle" font-size="18" fill="#8C6310">●</text>
+    </g>
+    <!-- Row 9 - Modérée (août) -->
+    <g transform="translate(0,256)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#FFFBE8" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0005</text>
+      <text x="80" y="20">Réorganisation poste découpe</text>
+      <text x="304" y="20">Julie Durand</text>
+      <text x="416" y="20">Production</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#FCEFCB"/>
+      <text x="516" y="20" text-anchor="middle" fill="#8C6310" font-weight="700" font-size="9.5" letter-spacing="0.06em">MODÉRÉE</text>
+      <text x="766" y="22" text-anchor="middle" font-size="18" fill="#8C6310">●</text>
+    </g>
+    <!-- Row 10 - Faible (juin) -->
+    <g transform="translate(0,288)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#EFF8F2" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0021</text>
+      <text x="80" y="20">Affichage consignes recyclage</text>
+      <text x="304" y="20">Lucas Petit</text>
+      <text x="416" y="20">Qualité</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#DCEDE3"/>
+      <text x="516" y="20" text-anchor="middle" fill="#1F6E45" font-weight="700" font-size="9.5" letter-spacing="0.06em">FAIBLE</text>
+      <text x="666" y="22" text-anchor="middle" font-size="18" fill="#1F6E45">●</text>
+    </g>
+    <!-- Row 11 - Faible (sept) -->
+    <g transform="translate(0,320)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#EFF8F2" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0024</text>
+      <text x="80" y="20">Renouveler formation SST</text>
+      <text x="304" y="20">Julie Durand</text>
+      <text x="416" y="20">RH</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#DCEDE3"/>
+      <text x="516" y="20" text-anchor="middle" fill="#1F6E45" font-weight="700" font-size="9.5" letter-spacing="0.06em">FAIBLE</text>
+      <text x="816" y="22" text-anchor="middle" font-size="18" fill="#1F6E45">●</text>
+    </g>
+    <!-- Row 12 - Faible (mars) -->
+    <g transform="translate(0,352)">
+      <rect width="1160" height="32" fill="#FFFFFF"/>
+      <rect x="590" width="570" height="32" fill="#EFF8F2" opacity="0.5"/>
+      <line x1="0" y1="32" x2="1160" y2="32" stroke="#E5E7EB" stroke-width="0.5"/>
+      <text x="14" y="20">PA-0028</text>
+      <text x="80" y="20">Mise à jour plan d’évacuation</text>
+      <text x="304" y="20">Marie Laurent</text>
+      <text x="416" y="20">Externe</text>
+      <rect x="488" y="6" width="56" height="20" rx="2" fill="#DCEDE3"/>
+      <text x="516" y="20" text-anchor="middle" fill="#1F6E45" font-weight="700" font-size="9.5" letter-spacing="0.06em">FAIBLE</text>
+      <text x="1116" y="22" text-anchor="middle" font-size="18" fill="#1F6E45">●</text>
+    </g>
+  </g>
+
+  <!-- Annotations -->
+  <g transform="translate(60,650)">
+    <rect width="320" height="64" rx="6" fill="#F26B1F"/>
+    <text x="20" y="26" fill="#FFFFFF" font-size="13" font-weight="700" letter-spacing="0.02em">MOIS COURANT SURLIGNÉ</text>
+    <text x="20" y="48" fill="#FFFFFF" font-size="11.5" opacity="0.95">Bordure orange = vision immédiate de l’urgence</text>
+  </g>
+  <path d="M 380 658 Q 480 600 605 230" stroke="#F26B1F" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+  <polygon points="605,230 600,242 612,240" fill="#F26B1F"/>
+
+  <g transform="translate(840,650)">
+    <rect width="380" height="64" rx="6" fill="#0F2A47"/>
+    <text x="20" y="26" fill="#FFFFFF" font-size="13" font-weight="700" letter-spacing="0.02em">TRI AUTO PAR CRITICITÉ DÉCROISSANTE</text>
+    <text x="20" y="48" fill="#FFFFFF" font-size="11.5" opacity="0.95">INDEX/EQUIV + SOMMEPROD · top 100 actions ouvertes</text>
+  </g>
+</svg>

@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 800" font-family="Inter, system-ui, sans-serif">
+  <rect width="1280" height="800" fill="#F5F6F8"/>
+
+  <rect x="40" y="40" width="1200" height="720" rx="10" fill="#FFFFFF" stroke="#D0D5DA" stroke-width="1"/>
+  <rect x="40" y="40" width="1200" height="36" rx="10" fill="#0F2A47"/>
+  <rect x="40" y="64" width="1200" height="12" fill="#0F2A47"/>
+  <circle cx="62" cy="58" r="6" fill="#FF5F57"/>
+  <circle cx="82" cy="58" r="6" fill="#FEBC2E"/>
+  <circle cx="102" cy="58" r="6" fill="#28C840"/>
+  <text x="640" y="63" text-anchor="middle" fill="#FFFFFF" font-size="12" font-weight="500" letter-spacing="0.04em">CODEX EHS — CONFIGURATION PAYS</text>
+
+  <g transform="translate(40,76)">
+    <rect width="1200" height="34" fill="#1A1F24"/>
+    <g font-size="11" font-weight="600" fill="#FFFFFF">
+      <rect x="12" y="4" width="118" height="26" rx="3" fill="#1E4574"/>
+      <text x="71" y="22" text-anchor="middle">📝 Démarrer ici</text>
+      <text x="203" y="22" text-anchor="middle" opacity="0.7">📋 Plan d’action</text>
+      <text x="297" y="22" text-anchor="middle" opacity="0.7">📊 Dashboard</text>
+      <text x="377" y="22" text-anchor="middle" opacity="0.7">📅 Planning</text>
+      <text x="453" y="22" text-anchor="middle" opacity="0.7">📒 Référentiels</text>
+    </g>
+  </g>
+
+  <!-- Title block -->
+  <g transform="translate(60,130)">
+    <text x="0" y="22" font-size="22" font-weight="800" fill="#0F2A47" letter-spacing="-0.02em">Configuration — choisis ton pays, le fichier s’adapte</text>
+    <text x="0" y="44" font-size="11" fill="#4A5057">Vocabulaire instance + devise + référentiel légal + format date = 1 cellule à changer</text>
+  </g>
+
+  <!-- Left : config block before -->
+  <g transform="translate(60,200)">
+    <text x="0" y="0" font-size="11" font-weight="700" fill="#9AA0A8" letter-spacing="0.08em">AVANT — PAYS FR</text>
+    <g transform="translate(0,16)">
+      <rect width="540" height="320" rx="8" fill="#FFFFFF" stroke="#E5E7EB"/>
+      <!-- Row 1 -->
+      <g transform="translate(20,20)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Pays d’utilisation</text>
+        <rect x="200" width="320" height="40" fill="#E6EDF5"/>
+        <text x="216" y="26" fill="#0F2A47" font-size="13" font-weight="700">FR — France</text>
+      </g>
+      <g transform="translate(20,68)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Devise</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#0F2A47" font-size="13" font-style="italic">EUR</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,116)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Instance</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#0F2A47" font-size="13" font-style="italic">CSSCT</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,164)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Référentiel légal</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#0F2A47" font-size="12" font-style="italic">Code du travail FR</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,212)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Format date</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#0F2A47" font-size="13" font-style="italic" font-family="JetBrains Mono, monospace">jj-mm-aaaa</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,260)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Autorité</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#0F2A47" font-size="11" font-style="italic">DREAL · CARSAT · Inspection</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Arrow center -->
+  <g transform="translate(620,360)">
+    <circle r="36" fill="#F26B1F"/>
+    <path d="M -14 -10 L 12 0 L -14 10 Z" fill="#FFFFFF"/>
+    <text x="0" y="60" text-anchor="middle" font-size="11" font-weight="800" fill="#0F2A47" letter-spacing="0.04em">1 CELLULE</text>
+    <text x="0" y="76" text-anchor="middle" font-size="11" fill="#4A5057">change tout</text>
+  </g>
+
+  <!-- Right : config block after CH -->
+  <g transform="translate(680,200)">
+    <text x="0" y="0" font-size="11" font-weight="700" fill="#F26B1F" letter-spacing="0.08em">APRÈS — PAYS CH (SUISSE)</text>
+    <g transform="translate(0,16)">
+      <rect width="540" height="320" rx="8" fill="#FFFFFF" stroke="#F26B1F" stroke-width="2"/>
+      <g transform="translate(20,20)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Pays d’utilisation</text>
+        <rect x="200" width="320" height="40" fill="#E6EDF5"/>
+        <text x="216" y="26" fill="#0F2A47" font-size="13" font-weight="700">CH — Suisse</text>
+      </g>
+      <g transform="translate(20,68)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Devise</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#F26B1F" font-size="13" font-weight="700">CHF</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,116)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Instance</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#F26B1F" font-size="13" font-weight="700">Commission santé-sécurité</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,164)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Référentiel légal</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#F26B1F" font-size="12" font-weight="700">LAA + OPA</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,212)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Format date</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#F26B1F" font-size="13" font-weight="700" font-family="JetBrains Mono, monospace">jj.mm.aaaa</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+      <g transform="translate(20,260)">
+        <rect width="200" height="40" fill="#1E4574"/>
+        <text x="14" y="26" fill="#FFFFFF" font-size="12" font-weight="700">Autorité</text>
+        <rect x="200" width="320" height="40" fill="#F5F6F8"/>
+        <text x="216" y="26" fill="#F26B1F" font-size="11" font-weight="700">SUVA</text>
+        <text x="494" y="26" fill="#9AA0A8" font-size="10" text-anchor="end">CALCULÉ</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- 8 countries bar -->
+  <g transform="translate(60,580)">
+    <text x="0" y="14" font-size="11" font-weight="700" fill="#0F2A47" letter-spacing="0.08em">8 PAYS FRANCOPHONES SUPPORTÉS</text>
+
+    <g transform="translate(0,30)">
+      <g>
+        <rect width="138" height="80" rx="6" fill="#0F2A47"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">FR</text>
+        <text x="14" y="44" fill="#FFFFFF" font-size="11" font-weight="700">France</text>
+        <text x="14" y="62" fill="#FFFFFF" font-size="10" opacity="0.75">CSSCT · EUR</text>
+      </g>
+      <g transform="translate(146,0)">
+        <rect width="138" height="80" rx="6" fill="#FFFFFF" stroke="#D0D5DA"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">BE</text>
+        <text x="14" y="44" fill="#0F2A47" font-size="11" font-weight="700">Belgique</text>
+        <text x="14" y="62" fill="#4A5057" font-size="10">CPPT · EUR</text>
+      </g>
+      <g transform="translate(292,0)">
+        <rect width="138" height="80" rx="6" fill="#FFFFFF" stroke="#D0D5DA"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">CH</text>
+        <text x="14" y="44" fill="#0F2A47" font-size="11" font-weight="700">Suisse</text>
+        <text x="14" y="62" fill="#4A5057" font-size="10">CSS · CHF</text>
+      </g>
+      <g transform="translate(438,0)">
+        <rect width="138" height="80" rx="6" fill="#FFFFFF" stroke="#D0D5DA"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">LU</text>
+        <text x="14" y="44" fill="#0F2A47" font-size="11" font-weight="700">Luxembourg</text>
+        <text x="14" y="62" fill="#4A5057" font-size="10">DSE · EUR</text>
+      </g>
+      <g transform="translate(584,0)">
+        <rect width="138" height="80" rx="6" fill="#FFFFFF" stroke="#D0D5DA"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">QC</text>
+        <text x="14" y="44" fill="#0F2A47" font-size="11" font-weight="700">Québec</text>
+        <text x="14" y="62" fill="#4A5057" font-size="10">CSST · CAD</text>
+      </g>
+      <g transform="translate(730,0)">
+        <rect width="138" height="80" rx="6" fill="#FFFFFF" stroke="#D0D5DA"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">MA</text>
+        <text x="14" y="44" fill="#0F2A47" font-size="11" font-weight="700">Maroc</text>
+        <text x="14" y="62" fill="#4A5057" font-size="10">CHSST · MAD</text>
+      </g>
+      <g transform="translate(876,0)">
+        <rect width="138" height="80" rx="6" fill="#FFFFFF" stroke="#D0D5DA"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">TN</text>
+        <text x="14" y="44" fill="#0F2A47" font-size="11" font-weight="700">Tunisie</text>
+        <text x="14" y="62" fill="#4A5057" font-size="10">CHST · TND</text>
+      </g>
+      <g transform="translate(1022,0)">
+        <rect width="138" height="80" rx="6" fill="#FFFFFF" stroke="#D0D5DA"/>
+        <text x="14" y="22" fill="#F26B1F" font-size="20" font-weight="800">DZ</text>
+        <text x="14" y="44" fill="#0F2A47" font-size="11" font-weight="700">Algérie</text>
+        <text x="14" y="62" fill="#4A5057" font-size="10">CHS · DZD</text>
+      </g>
+    </g>
+  </g>
+</svg>

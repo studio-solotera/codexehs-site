@@ -1,0 +1,256 @@
+---
+// src/components/sales/Guarantee.astro
+// Bloc de réassurance pré-achat : aperçu du fichier réel + support 30 jours.
+// Pas de remboursement de confort (politique 30/05) : le risk reversal repose
+// sur la démonstration visuelle, pas sur le retour produit. Nom de fichier
+// conservé pour ne pas casser l’import ; la section porte désormais la réassurance.
+---
+
+<section class="guarantee" aria-labelledby="guarantee-title">
+  <div class="guarantee__inner">
+    <div class="guarantee__badge" aria-hidden="true">
+      <svg viewBox="0 0 160 160" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="seal-gradient" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#F26B1F" />
+            <stop offset="100%" stop-color="#D85410" />
+          </linearGradient>
+        </defs>
+        <!-- Bordure festonnée -->
+        <circle cx="80" cy="80" r="72" fill="url(#seal-gradient)" />
+        <circle
+          cx="80"
+          cy="80"
+          r="64"
+          fill="none"
+          stroke="#fff"
+          stroke-width="1.5"
+          stroke-dasharray="4 3"
+          opacity="0.55"
+        />
+        <!-- Chiffre 30 -->
+        <text
+          x="80"
+          y="78"
+          text-anchor="middle"
+          font-family="Inter Variable, sans-serif"
+          font-size="48"
+          font-weight="700"
+          fill="#fff"
+          letter-spacing="-2"
+        >30</text>
+        <text
+          x="80"
+          y="100"
+          text-anchor="middle"
+          font-family="JetBrains Mono Variable, monospace"
+          font-size="10"
+          font-weight="600"
+          fill="#fff"
+          letter-spacing="2"
+        >JOURS</text>
+        <text
+          x="80"
+          y="115"
+          text-anchor="middle"
+          font-family="JetBrains Mono Variable, monospace"
+          font-size="8"
+          font-weight="500"
+          fill="rgba(255,255,255,0.8)"
+          letter-spacing="1.5"
+        >SUPPORT EMAIL</text>
+      </svg>
+    </div>
+
+    <div class="guarantee__body">
+      <span class="eyebrow">
+        <span class="dot"></span> Acheter en confiance
+      </span>
+      <h2 id="guarantee-title" class="guarantee__title">
+        Tu sais exactement ce que tu reçois.
+      </h2>
+      <p class="guarantee__lead">
+        Le fichier téléchargé après paiement est précisément celui présenté
+        sur cette page — mêmes onglets, mêmes formules, même rendu. Tu
+        l’examines en détail avant de décider : copies d’écran réelles à
+        l’appui, rien n’est masqué.
+      </p>
+
+      <ul class="guarantee__steps">
+        <li>
+          <span class="guarantee__step-num">1</span>
+          <div>
+            <strong>Aperçu complet.</strong> Les six onglets du fichier sont
+            déroulés plus haut, copies d’écran réelles à l’appui.
+          </div>
+        </li>
+        <li>
+          <span class="guarantee__step-num">2</span>
+          <div>
+            <strong>Le fichier réel, pas une maquette.</strong> Les captures
+            montrent les vraies formules et le vrai dashboard — ce que tu
+            télécharges y est identique.
+          </div>
+        </li>
+        <li>
+          <span class="guarantee__step-num">3</span>
+          <div>
+            <strong>30 jours de support email.</strong> Un blocage, une
+            question de configuration pays&nbsp;? Tu écris à
+            <a href="mailto:contact@codexehs.com">contact@codexehs.com</a>,
+            je réponds.
+          </div>
+        </li>
+      </ul>
+
+      <p class="guarantee__footnote">
+        Fichier livré non conforme, lien de téléchargement défaillant ou
+        double débit&nbsp;: signale-le et c’est corrigé — ou remboursé — sans
+        discuter.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .guarantee {
+    padding: clamp(56px, 7vw, 88px) 0;
+    background: #fff;
+  }
+
+  .guarantee__inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 4vw, 40px);
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: clamp(32px, 5vw, 56px);
+    align-items: center;
+    background: linear-gradient(
+      135deg,
+      rgba(242, 107, 31, 0.04) 0%,
+      rgba(30, 69, 116, 0.04) 100%
+    );
+    border: 1px solid var(--c-line);
+    border-radius: 16px;
+    padding-block: clamp(36px, 5vw, 56px);
+    padding-inline: clamp(28px, 5vw, 56px);
+  }
+
+  .guarantee__badge {
+    width: 180px;
+    height: 180px;
+    flex-shrink: 0;
+    filter: drop-shadow(0 12px 24px rgba(242, 107, 31, 0.25));
+  }
+
+  .guarantee__badge svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--c-primary-700);
+    margin-bottom: 12px;
+  }
+
+  .eyebrow .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--c-action);
+  }
+
+  .guarantee__title {
+    font-size: clamp(24px, 3.2vw, 34px);
+    font-weight: 700;
+    color: var(--c-primary-900);
+    margin: 0 0 14px;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .guarantee__lead {
+    font-size: 16px;
+    color: var(--c-ink-600);
+    line-height: 1.6;
+    margin: 0 0 24px;
+  }
+
+  .guarantee__steps {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .guarantee__steps li {
+    display: grid;
+    grid-template-columns: 32px 1fr;
+    gap: 14px;
+    align-items: center;
+    font-size: 15px;
+    color: var(--c-primary-900);
+    line-height: 1.5;
+  }
+
+  .guarantee__step-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--c-primary-900);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "JetBrains Mono Variable", monospace;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .guarantee__steps strong {
+    font-weight: 600;
+    color: var(--c-primary-900);
+  }
+
+  .guarantee__steps a {
+    color: var(--c-action);
+    text-decoration: underline;
+    text-decoration-thickness: 1.5px;
+    text-underline-offset: 2px;
+  }
+
+  .guarantee__footnote {
+    font-size: 14px;
+    color: var(--c-ink-600);
+    line-height: 1.5;
+    margin: 0;
+    padding-top: 16px;
+    border-top: 1px dashed var(--c-line);
+  }
+
+  @media (max-width: 720px) {
+    .guarantee__inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .guarantee__badge {
+      margin: 0 auto;
+      width: 140px;
+      height: 140px;
+    }
+    .guarantee__steps li {
+      text-align: left;
+    }
+  }
+</style>
