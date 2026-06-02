@@ -1,5 +1,5 @@
 /* =========================================================================
- * Codex EHS — global.css
+ * CODEX EHS — global.css
  * Ordre d'import IMPORTANT :
  *   1. tokens.css (single source of truth, ne pas modifier hors brand kit)
  *   2. fonts (self-hostees via fontsource, jamais Google Fonts CDN)

@@ -1,0 +1,27 @@
+---
+// src/components/ressources/ArticleCard.astro
+// Carte d'un article dans le hub /ressources.
+
+interface Props {
+  href: string;
+  titre: string;
+  description: string;
+  type: 'pilier' | 'satellite';
+  date: Date;
+}
+
+const { href, titre, description, type, date } = Astro.props;
+const fmt = (d: Date) =>
+  new Intl.DateTimeFormat('fr-FR', { month: 'short', year: 'numeric' }).format(d);
+const libelleType = type === 'pilier' ? 'Guide pilier' : 'Article';
+---
+
+<a class="res-card" href={href}>
+  <span class={`res-card__type res-card__type--${type}`}>{libelleType}</span>
+  <span class="res-card__title">{titre}</span>
+  <span class="res-card__desc">{description}</span>
+  <span class="res-card__meta">
+    <span>{fmt(date)}</span>
+    <span class="res-card__cue">Lire &rarr;</span>
+  </span>
+</a>

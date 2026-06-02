@@ -1,0 +1,134 @@
+---
+// src/pages/ressources/index.astro
+// Hub de la section Ressources : liste tous les articles publies, regroupes par
+// grappe thematique (pilier + satellites). Source des articles : Content
+// Collection `ressources` (cf. src/content.config.ts).
+//
+// Layout : Base.astro (le layout du site). On lui passe `title` NU (sans suffixe :
+// Base ajoute lui-meme « | <nom du site> »), `description`, `canonical`, `ogImage`
+// (chemin relatif -> Base le resout en URL absolue) et `jsonLd` (Base injecte ces
+// blocs + son Organization global). Les hreflang fr/x-default sont geres une fois
+// dans Base, donc rien a faire ici.
+//
+// Astro 5 : getCollection renvoie des entrees dont l'URL = `/ressources/${entry.id}`.
+// Sous Astro 4, `entry.id` -> `entry.slug` (cf. README).
+
+import Base from '../../layouts/Base.astro';
+import ArticleCard from '../../components/ressources/ArticleCard.astro';
+import { getCollection } from 'astro:content';
+import '../../styles/ressources.css';
+
+const SITE_URL = 'https://codexehs.com';
+
+// Publication planifiee : un article n'est visible qu'a partir de sa date de
+// publication (front-matter `date`). Le site etant statique, il faut un rebuild
+// pour faire apparaitre les articles arrives a echeance -> cf. build quotidien
+// (.github/workflows/daily-rebuild.yml). `maintenant` = date/heure du build.
+const maintenant = Date.now();
+const tous = (await getCollection('ressources', ({ data }) => !data.draft && data.date.valueOf() <= maintenant))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+// Ordre d'affichage des grappes + intitules RENDUS (accents + apostrophes typo).
+// L'ordre place en premier la grappe du seul produit vendable (plan-action).
+const GRAPPES = [
+  {
+    slug: 'plan-action',
+    titre: 'Plan d’action EHS',
+    lead: 'Construire, prioriser et tenir ses actions correctives jusqu’à la clôture.',
+  },
+  {
+    slug: 'duerp',
+    titre: 'DUERP & évaluation des risques',
+    lead: 'Document unique, cotation, mise à jour : l’obligation socle de la prévention.',
+  },
+  {
+    slug: 'indicateurs-at',
+    titre: 'Indicateurs & analyse des AT',
+    lead: 'TF/TG, pyramide de Bird, arbre des causes : mesurer et analyser sans se tromper.',
+  },
+  {
+    slug: 'iso-45001',
+    titre: 'ISO 45001',
+    lead: 'Certification, audit blanc, revue de direction : tenir la norme sans cabinet.',
+  },
+] as const;
+
+// Articles d'une grappe : pilier en tete, puis satellites par date decroissante.
+function articlesDe(slug: string) {
+  return tous
+    .filter((e) => e.data.grappe === slug)
+    .sort((a, b) => {
+      if (a.data.type !== b.data.type) return a.data.type === 'pilier' ? -1 : 1;
+      return b.data.date.valueOf() - a.data.date.valueOf();
+    });
+}
+
+const description =
+  'Guides pratiques pour Responsables EHS solo : plan d’action, DUERP, indicateurs AT, ISO 45001. Méthode concrète, vocabulaire de terrain, sources à jour.';
+const canonical = `${SITE_URL}/ressources`;
+const ogImage = '/og/ressources.png'; // chemin relatif : Base le resout en URL absolue
+
+const collectionSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Ressources EHS',
+  description,
+  url: canonical,
+  inLanguage: 'fr-FR',
+  isPartOf: { '@type': 'WebSite', name: 'CODEX EHS', url: SITE_URL },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Accueil', item: `${SITE_URL}/` },
+    { '@type': 'ListItem', position: 2, name: 'Ressources', item: canonical },
+  ],
+};
+---
+
+<Base
+  title="Ressources EHS — guides de terrain"
+  description={description}
+  canonical={canonical}
+  ogImage={ogImage}
+  jsonLd={[collectionSchema, breadcrumbSchema]}
+>
+  <div class="res-wrap">
+    <nav class="res-breadcrumb" aria-label="Fil d’Ariane">
+      <a href="/">Accueil</a> / <span aria-current="page">Ressources</span>
+    </nav>
+
+    <header class="res-hub-head">
+      <h1 class="display">Ressources EHS</h1>
+      <p>
+        Des guides de terrain pour piloter la santé-sécurité quand on est seul à la porter.
+        Méthode concrète, vocabulaire à jour, écrits par un Responsable EHS.
+      </p>
+    </header>
+
+    {GRAPPES.map((g) => {
+      const articles = articlesDe(g.slug);
+      return articles.length > 0 ? (
+        <section class="res-cluster" aria-labelledby={`grp-${g.slug}`}>
+          <div class="res-cluster__head">
+            <h2 id={`grp-${g.slug}`} class="res-cluster__title">{g.titre}</h2>
+            <p class="res-cluster__lead">{g.lead}</p>
+          </div>
+          <div class="res-grid">
+            {articles.map((a) => (
+              <ArticleCard
+                href={`/ressources/${a.id}`}
+                titre={a.data.titre}
+                description={a.data.description}
+                type={a.data.type}
+                date={a.data.date}
+              />
+            ))}
+          </div>
+        </section>
+      ) : null;
+    })}
+  </div>
+</Base>

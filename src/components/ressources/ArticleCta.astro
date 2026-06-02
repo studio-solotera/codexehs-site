@@ -1,0 +1,78 @@
+---
+// src/components/ressources/ArticleCta.astro
+// CTA de fin d'article, pilote par src/data/produits.ts.
+//
+// Comportement (discipline CTA du gel commercial) :
+//  - Si le produit de la grappe est 'en-vente' ET a un checkoutUrl -> bouton
+//    d'achat direct vers CE produit.
+//  - Sinon (produit gele / a venir) -> bouton d'achat rabattu sur le Plan
+//    d'Action + bandeau doux « <produit> arrive » SANS bouton d'achat.
+//  - Si meme le Plan d'Action n'a pas encore de checkoutUrl -> bouton en etat
+//    « apercu » (aria-disabled, pas de clic mort) pointant vers la page produit.
+//
+// Au degel d'un produit : basculer son `etat` a 'en-vente' et renseigner son
+// `checkoutUrl` dans produits.ts. Aucune modification ici ni dans les articles.
+
+import { resoudreCta } from '../../data/produits';
+
+interface Props {
+  produit: string;       // slug du produit de la grappe (front-matter `produit`)
+  titre?: string;        // titre du bloc (optionnel)
+  lead?: string;         // accroche (optionnel)
+}
+
+const { produit, titre, lead } = Astro.props;
+const { cibleAchat, produitGrappe, achatDirect, pivot } = resoudreCta(produit);
+
+// La cible d'achat a-t-elle un lien de paiement actif ?
+const achatActif = cibleAchat.checkoutUrl !== null;
+const hrefAchat = cibleAchat.checkoutUrl ?? cibleAchat.url;
+
+// Titre/lead par defaut (RENDUS) selon le cas.
+const titreFinal = titre ?? (achatDirect
+  ? `Passe à l’action avec ${cibleAchat.nom}`
+  : `Commence par structurer ton plan d’action`);
+
+const leadFinal = lead ?? (achatDirect
+  ? cibleAchat.resume
+  : `La théorie ne tient pas un audit ; un plan d’action suivi, si. ${pivot.resume}`);
+
+// Bandeau doux « produit de la grappe arrive » uniquement si on rabat sur le
+// pivot ET que le produit de la grappe n'est pas le pivot lui-meme.
+const afficherMentionDouce = !achatDirect && produitGrappe.slug !== pivot.slug;
+const libelleEtat = produitGrappe.etat === 'a-venir' ? 'arrive prochainement' : 'arrive bientôt';
+---
+
+<aside class="res-cta" aria-label="Aller plus loin">
+  <div class="res-cta__main">
+    <span class="res-cta__eyebrow">CODEX EHS</span>
+    <h2 class="res-cta__title">{titreFinal}</h2>
+    <p class="res-cta__lead">{leadFinal}</p>
+    <div class="res-cta__row">
+      <span class="res-cta__price">
+        {cibleAchat.prix} € TTC
+        <small>Paiement unique</small>
+      </span>
+      {achatActif ? (
+        <a class="res-cta__btn" href={hrefAchat} data-ls-checkout>
+          Découvrir {cibleAchat.nom} &rarr;
+        </a>
+      ) : (
+        <a class="res-cta__btn" href={hrefAchat} aria-disabled="true" title="Bientôt disponible à l’achat">
+          Voir {cibleAchat.nom} &rarr;
+        </a>
+      )}
+      <a class="res-cta__link" href={`${cibleAchat.url}#apercu`}>Voir l’aperçu</a>
+    </div>
+  </div>
+
+  {afficherMentionDouce && (
+    <div class="res-cta__soft">
+      <span class="res-cta__softdot" aria-hidden="true"></span>
+      <span>
+        <strong>{produitGrappe.nom}</strong> {libelleEtat}. En attendant, le Plan d’Action
+        te permet de poser les bases d’une démarche tenable.
+      </span>
+    </div>
+  )}
+</aside>

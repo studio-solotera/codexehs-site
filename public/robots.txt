@@ -1,4 +1,4 @@
-# Codex EHS - robots.txt
+# CODEX EHS - robots.txt
 # Site : https://codexehs.com
 
 User-agent: *

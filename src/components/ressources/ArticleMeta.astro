@@ -1,0 +1,30 @@
+---
+// src/components/ressources/ArticleMeta.astro
+// Ligne de meta sous le H1 : auteur (byline discrete), date de publication,
+// date de mise a jour si presente, temps de lecture estime.
+
+interface Props {
+  auteur: string;
+  date: Date;
+  maj?: Date;
+  motsCorps: number; // nombre de mots du corps, pour estimer le temps de lecture
+}
+
+const { auteur, date, maj, motsCorps } = Astro.props;
+
+const fmt = (d: Date) =>
+  new Intl.DateTimeFormat('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' }).format(d);
+
+// ~220 mots/min de lecture.
+const minutes = Math.max(2, Math.round(motsCorps / 220));
+---
+
+<div class="res-article__meta">
+  <span>Par <strong>{auteur}</strong></span>
+  <span>&middot;</span>
+  <span>
+    {maj ? `Mis à jour le ${fmt(maj)}` : `Publié le ${fmt(date)}`}
+  </span>
+  <span>&middot;</span>
+  <span>{minutes} min de lecture</span>
+</div>

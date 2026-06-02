@@ -1,0 +1,34 @@
+---
+// src/components/ressources/RelatedArticles.astro
+// Maillage interne. Recoit une liste d'articles lies (deja resolus dans la
+// page article : le pilier de la grappe + les autres satellites de la meme
+// grappe). Renforce le jus SEO interne : satellite -> pilier -> produit.
+
+interface Lien {
+  href: string;
+  titre: string;
+  description: string;
+  estPilier: boolean;
+}
+
+interface Props {
+  titre?: string;
+  liens: Lien[];
+}
+
+const { titre = 'Dans la même série', liens } = Astro.props;
+---
+
+{liens.length > 0 && (
+  <nav class="res-related" aria-label="Articles liés">
+    <h2>{titre}</h2>
+    <div class="res-related__list">
+      {liens.map((l) => (
+        <a class="res-related__item" href={l.href}>
+          {l.estPilier ? '\u25B8 Guide complet : ' : ''}{l.titre}
+          <span>{l.description}</span>
+        </a>
+      ))}
+    </div>
+  </nav>
+)}

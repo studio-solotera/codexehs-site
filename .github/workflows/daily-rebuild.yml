@@ -1,0 +1,54 @@
+name: Rebuild quotidien (publication planifiee des Ressources)
+
+# POURQUOI CE WORKFLOW
+# Le site est statique (Astro build sur Cloudflare Pages). Les articles de la
+# section /ressources sont publies a la date inscrite dans leur front-matter
+# (`date:`), via un filtre `data.date <= maintenant` dans les pages Ressources.
+# Comme le HTML est fige au moment du build, un article arrive a echeance
+# n'apparait QUE si un nouveau build est lance. Ce workflow declenche un
+# deploiement Cloudflare Pages chaque jour : l'article du mercredi devient ainsi
+# visible automatiquement, sans aucune intervention.
+#
+# PRE-REQUIS (a faire une seule fois, cf. la procedure livree) :
+#   1. Cloudflare Pages > projet > Settings > Builds & deployments > Deploy hooks
+#      -> creer un hook, copier son URL.
+#   2. GitHub > repo > Settings > Secrets and variables > Actions
+#      -> secret `CF_PAGES_DEPLOY_HOOK` = l'URL du hook.
+
+on:
+  schedule:
+    # Tous les jours a 05:00 UTC (07:00 Europe/Paris en ete, 06:00 en hiver).
+    # Les dates de publication sont a minuit UTC : a 05:00 UTC, l'article du jour
+    # est donc deja "arrive a echeance" et sera inclus dans le build.
+    # NB : l'horaire des crons GitHub Actions peut glisser de quelques dizaines
+    # de minutes aux heures de forte charge - sans impact pour une publication
+    # quotidienne.
+    - cron: '0 5 * * *'
+
+  # Declenchement manuel depuis l'onglet "Actions" du repo (bouton "Run workflow").
+  workflow_dispatch: {}
+
+# Empeche deux rebuilds concurrents si un run manuel chevauche le run planifie.
+concurrency:
+  group: daily-rebuild
+  cancel-in-progress: false
+
+jobs:
+  trigger-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Declencher un deploiement Cloudflare Pages
+        run: |
+          if [ -z "${{ secrets.CF_PAGES_DEPLOY_HOOK }}" ]; then
+            echo "::error::Secret CF_PAGES_DEPLOY_HOOK absent. Cf. la procedure : Cloudflare > Deploy hooks, puis GitHub > Settings > Secrets."
+            exit 1
+          fi
+          echo "Appel du Deploy Hook Cloudflare Pages..."
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST "${{ secrets.CF_PAGES_DEPLOY_HOOK }}")
+          echo "Reponse HTTP : $code"
+          # Cloudflare renvoie 200 (et un JSON) quand le deploiement est accepte.
+          if [ "$code" != "200" ]; then
+            echo "::error::Le Deploy Hook a renvoye $code (attendu 200). Verifier que l'URL du hook est toujours valide."
+            exit 1
+          fi
+          echo "Deploiement declenche. Suivi : Cloudflare Pages > Deployments."

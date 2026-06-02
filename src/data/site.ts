@@ -1,13 +1,13 @@
 // =========================================================================
-// site.ts - Configuration globale Codex EHS
+// site.ts - Configuration globale CODEX EHS
 // Source unique pour : URL canonique, contact, infos AE, meta SEO par defaut.
 // Toute modification ici se propage sur tout le site.
 // =========================================================================
 
 export const SITE = {
   // Identite
-  name: 'Codex EHS',
-  shortName: 'Codex EHS',
+  name: 'CODEX EHS',
+  shortName: 'CODEX EHS',
   tagline: 'Le kit du Responsable EHS solo.',
   baseline: 'Audit-ready en 48h.',
   description:
@@ -38,9 +38,9 @@ export const SITE = {
 
   // Auteur (auteur.org schema)
   author: {
-    name: 'Guillaume Cadet',
-    role: 'EHS Manager industriel',
-    bio: "EHS Manager Amcor Flexibles Mareuil-sur-Ay. 12 ans d'experience en EHS industriel, ISO 45001 / 14001, plans d'action terrain.",
+    name: 'Guillaume',
+    role: 'Responsable EHS industriel',
+    bio: "Responsable EHS industriel. 12 ans d'experience en EHS industriel, ISO 45001 / 14001, plans d'action terrain.",
   },
 } as const;
 

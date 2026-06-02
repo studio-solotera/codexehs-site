@@ -1,5 +1,5 @@
 // =========================================================================
-// products.ts - Catalogue Codex EHS
+// products.ts - Catalogue CODEX EHS
 // 5 templates. 1 actif (Plan d'action). 4 "bientot disponibles".
 // Modifier ici pour ajouter/activer un produit, jamais en dur ailleurs.
 // =========================================================================
@@ -30,9 +30,9 @@ export const PRODUCTS: Product[] = [
     title: "Plan d'Action EHS Dynamique",
     shortTitle: "Plan d'Action EHS",
     pitch:
-      "Le plan d'action SAMS-ready en 1 fichier Excel : 500 actions, dashboard temps reel, planning trie par criticite, multi-pays francophone.",
+      "Le plan d'action audit-ready en 1 fichier Excel : 500 actions, dashboard temps reel, planning trie par criticite, multi-pays francophone.",
     longPitch:
-      "Un seul fichier Excel pour piloter tout ton plan d'action EHS. 6 onglets, 4 591 formules dynamiques, 6 KPI cards, 6 graphiques, matrice de criticite 5x5, planning top 100, indicateurs annuels civil et fiscal. Format SAMS, vocabulaire CSSCT/CARSAT/DREAL a jour. 8 pays francophones pilotes par une seule cellule.",
+      "Un seul fichier Excel pour piloter tout ton plan d'action EHS. 6 onglets, 4 591 formules dynamiques, 6 KPI cards, 6 graphiques, matrice de criticite 5x5, planning top 100, indicateurs annuels civil et fiscal. Format structuré, vocabulaire CSSCT/CARSAT/DREAL a jour. 8 pays francophones pilotes par une seule cellule.",
     price: 89,
     currency: 'EUR',
     status: 'active',

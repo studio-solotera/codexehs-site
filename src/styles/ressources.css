@@ -1,0 +1,244 @@
+/* =========================================================================
+ * CODEX EHS — Section Ressources (styles)
+ * Fichier : src/styles/ressources.css
+ *
+ * REGLE : ce fichier ne definit AUCUNE couleur en dur. Il consomme uniquement
+ * les variables de CodexEHS_TokensCSS_v1.css (importe globalement par le
+ * layout Base via global.css). Zero duplication de palette. Toute couleur = var(--c-*).
+ *
+ * Import : ajoute `import '../../styles/ressources.css';` dans le frontmatter
+ * des deux pages /ressources (index.astro et [...slug].astro). Un import CSS
+ * dans une page Astro est injecte globalement.
+ * ========================================================================= */
+
+/* ---- Conteneur de section ---- */
+.res-wrap {
+  max-width: var(--max-content);
+  margin: 0 auto;
+  padding: var(--space-7) var(--space-5) var(--space-9);
+}
+.res-prose-wrap {
+  max-width: var(--max-narrow);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-9);
+}
+
+/* ---- Fil d'Ariane ---- */
+.res-breadcrumb {
+  font-size: var(--fs-small);
+  color: var(--c-ink-400);
+  margin-bottom: var(--space-4);
+}
+.res-breadcrumb a { color: var(--c-ink-600); text-decoration: none; }
+.res-breadcrumb a:hover { color: var(--c-action); }
+.res-breadcrumb span[aria-current] { color: var(--c-ink-900); }
+
+/* ---- En-tete du hub ---- */
+.res-hub-head { margin-bottom: var(--space-7); }
+.res-hub-head .display { margin: 0 0 var(--space-3); }
+.res-hub-head p { color: var(--c-ink-600); font-size: var(--fs-body-l); max-width: 60ch; }
+
+/* ---- Grappe (regroupement thematique du hub) ---- */
+.res-cluster { margin-bottom: var(--space-8); }
+.res-cluster__head {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: var(--space-4); flex-wrap: wrap;
+  padding-bottom: var(--space-3);
+  border-bottom: var(--bw-3) solid var(--c-primary-900);
+  margin-bottom: var(--space-5);
+}
+.res-cluster__title { margin: 0; }
+.res-cluster__lead { color: var(--c-ink-600); font-size: var(--fs-small); margin: 0; max-width: 46ch; }
+
+/* ---- Grille de cartes ---- */
+.res-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: var(--space-5);
+}
+
+/* ---- Carte article ---- */
+.res-card {
+  display: flex; flex-direction: column;
+  background: var(--c-bg);
+  border: var(--bw-2) solid var(--c-line-soft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  transition: border-color var(--t-fast), box-shadow var(--t-fast), transform var(--t-fast);
+  text-decoration: none;
+  height: 100%;
+}
+.res-card:hover {
+  border-color: var(--c-primary-300);
+  box-shadow: var(--shadow-2);
+  transform: translateY(-2px);
+}
+.res-card__type {
+  display: inline-block; align-self: flex-start;
+  font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: var(--ls-micro); text-transform: uppercase;
+  padding: 3px 8px; border-radius: var(--radius-sm);
+  margin-bottom: var(--space-3);
+}
+.res-card__type--pilier { background: var(--c-primary-900); color: #fff; }
+.res-card__type--satellite { background: var(--c-bg-soft); color: var(--c-ink-600); border: var(--bw-1) solid var(--c-line); }
+.res-card__title {
+  font-family: var(--font-display); font-weight: 700;
+  font-size: var(--fs-h3); line-height: var(--lh-h3);
+  color: var(--c-primary-900); margin: 0 0 var(--space-2);
+}
+.res-card:hover .res-card__title { color: var(--c-primary-700); }
+.res-card__desc { color: var(--c-ink-600); font-size: var(--fs-small); line-height: var(--lh-small); margin: 0 0 var(--space-4); }
+.res-card__meta {
+  margin-top: auto; display: flex; gap: var(--space-3); align-items: center;
+  font-size: var(--fs-micro); color: var(--c-ink-400);
+}
+.res-card__cue { color: var(--c-action); font-weight: 600; }
+
+/* ---- En-tete d'article ---- */
+.res-article__eyebrow {
+  display: inline-block; font-size: var(--fs-micro); font-weight: 600;
+  letter-spacing: var(--ls-micro); text-transform: uppercase;
+  color: var(--c-action); margin-bottom: var(--space-3);
+}
+.res-article__title {
+  font-size: var(--fs-h1); line-height: var(--lh-h1); letter-spacing: var(--ls-h1);
+  color: var(--c-primary-900); margin: 0 0 var(--space-4);
+}
+.res-article__meta {
+  display: flex; flex-wrap: wrap; gap: var(--space-4); align-items: center;
+  font-size: var(--fs-small); color: var(--c-ink-600);
+  padding-bottom: var(--space-5);
+  border-bottom: var(--bw-1) solid var(--c-line);
+  margin-bottom: var(--space-6);
+}
+.res-article__meta strong { color: var(--c-ink-900); font-weight: 600; }
+
+/* ---- Corps de l'article (prose) ---- */
+.res-prose { color: var(--c-ink-900); font-size: var(--fs-body-l); line-height: var(--lh-body-l); }
+.res-prose > * { max-width: 100%; }
+.res-prose h2 {
+  font-size: var(--fs-h2); line-height: var(--lh-h2); letter-spacing: var(--ls-h2);
+  color: var(--c-primary-900); margin: var(--space-7) 0 var(--space-3);
+  padding-top: var(--space-2);
+}
+.res-prose h3 {
+  font-size: var(--fs-h3); line-height: var(--lh-h3);
+  color: var(--c-primary-800); margin: var(--space-6) 0 var(--space-3);
+}
+.res-prose p { margin: 0 0 var(--space-4); }
+.res-prose ul, .res-prose ol { margin: 0 0 var(--space-4); padding-left: var(--space-5); }
+.res-prose li { margin-bottom: var(--space-2); }
+.res-prose a { color: var(--c-primary-700); text-decoration: underline; text-underline-offset: 2px; }
+.res-prose a:hover { color: var(--c-action); }
+.res-prose strong { font-weight: 700; color: var(--c-ink-900); }
+.res-prose code {
+  font-family: var(--font-mono); font-size: 0.9em;
+  background: var(--c-bg-soft); color: var(--c-primary-900);
+  padding: 2px 6px; border-radius: var(--radius-sm);
+}
+
+/* Tableaux markdown */
+.res-prose table {
+  width: 100%; border-collapse: collapse; margin: var(--space-5) 0;
+  font-size: var(--fs-small);
+}
+.res-prose thead th {
+  background: var(--c-primary-900); color: #fff; text-align: left;
+  font-weight: 600; padding: 10px 12px;
+}
+.res-prose tbody td { padding: 9px 12px; border-bottom: var(--bw-1) solid var(--c-line); }
+.res-prose tbody tr:nth-child(even) td { background: var(--c-bg-soft); }
+
+/* Citation / mise en exergue */
+.res-prose blockquote {
+  margin: var(--space-5) 0; padding: var(--space-4) var(--space-5);
+  border-left: var(--bw-3) solid var(--c-action);
+  background: var(--c-bg-soft); border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--c-ink-700);
+}
+.res-prose blockquote p:last-child { margin-bottom: 0; }
+
+/* Encadre formule (mono) genere via `> [!formule]` -> on stylise les <pre> markdown */
+.res-prose pre {
+  background: var(--c-primary-50); border: var(--bw-1) solid var(--c-line);
+  border-radius: var(--radius-md); padding: var(--space-4);
+  overflow-x: auto; margin: var(--space-5) 0;
+}
+.res-prose pre code { background: transparent; padding: 0; }
+
+.res-prose img { max-width: 100%; height: auto; border-radius: var(--radius-md); }
+
+.res-prose hr { border: 0; border-top: var(--bw-1) solid var(--c-line); margin: var(--space-7) 0; }
+
+/* Note de sources en pied d'article */
+.res-sources {
+  margin-top: var(--space-7); padding-top: var(--space-5);
+  border-top: var(--bw-1) solid var(--c-line);
+  font-size: var(--fs-small); line-height: var(--lh-small); color: var(--c-ink-600);
+}
+.res-sources h2 { font-size: var(--fs-h3); color: var(--c-primary-900); margin-bottom: var(--space-3); }
+
+/* ---- Composant CTA ---- */
+.res-cta {
+  margin: var(--space-7) 0 0;
+  border: var(--bw-2) solid var(--c-line);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+}
+.res-cta__main {
+  background: var(--c-primary-900); color: #fff;
+  padding: var(--space-6);
+}
+.res-cta__eyebrow {
+  font-size: var(--fs-micro); font-weight: 600; letter-spacing: var(--ls-micro);
+  text-transform: uppercase; color: var(--c-action); display: block; margin-bottom: var(--space-2);
+}
+.res-cta__title { color: #fff; font-size: var(--fs-h3); line-height: var(--lh-h3); margin: 0 0 var(--space-2); }
+.res-cta__lead { color: var(--c-primary-100); font-size: var(--fs-body); margin: 0 0 var(--space-5); max-width: 60ch; }
+.res-cta__row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+.res-cta__price { font-family: var(--font-display); font-weight: 800; font-size: var(--fs-h3); color: #fff; }
+.res-cta__price small { font-size: var(--fs-micro); font-weight: 600; color: var(--c-primary-300); display: block; letter-spacing: var(--ls-micro); text-transform: uppercase; }
+.res-cta__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--c-action); color: #fff;
+  padding: 12px 22px; border-radius: var(--radius-md);
+  font-weight: 600; text-decoration: none; border: none; cursor: pointer;
+  transition: background var(--t-fast);
+}
+.res-cta__btn:hover { background: var(--c-action-hover); color: #fff; }
+.res-cta__btn[aria-disabled='true'] { opacity: 0.55; cursor: not-allowed; pointer-events: none; }
+.res-cta__link { color: #fff; text-decoration: underline; text-underline-offset: 2px; font-size: var(--fs-small); }
+.res-cta__link:hover { color: var(--c-action); }
+
+/* Bandeau « produit gele arrive » sous le CTA principal */
+.res-cta__soft {
+  background: var(--c-bg-soft); padding: var(--space-4) var(--space-6);
+  font-size: var(--fs-small); color: var(--c-ink-600);
+  display: flex; align-items: center; gap: var(--space-3);
+  border-top: var(--bw-1) solid var(--c-line);
+}
+.res-cta__soft .res-cta__softdot {
+  flex: none; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--c-warning);
+}
+
+/* ---- Maillage interne (articles lies) ---- */
+.res-related { margin-top: var(--space-8); }
+.res-related h2 { font-size: var(--fs-h3); color: var(--c-primary-900); margin-bottom: var(--space-4); }
+.res-related__list { display: grid; gap: var(--space-3); }
+.res-related__item {
+  display: block; padding: var(--space-4);
+  border: var(--bw-1) solid var(--c-line); border-radius: var(--radius-md);
+  text-decoration: none; color: var(--c-primary-800); font-weight: 600;
+  transition: border-color var(--t-fast), background var(--t-fast);
+}
+.res-related__item:hover { border-color: var(--c-primary-300); background: var(--c-primary-50); }
+.res-related__item span { display: block; font-weight: 400; color: var(--c-ink-600); font-size: var(--fs-small); margin-top: 2px; }
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .res-wrap, .res-prose-wrap { padding-left: var(--space-4); padding-right: var(--space-4); }
+  .res-article__title { font-size: var(--fs-h2); }
+  .res-prose { font-size: var(--fs-body); }
+}
